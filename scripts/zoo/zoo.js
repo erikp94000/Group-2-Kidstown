@@ -216,6 +216,46 @@ function showRegion(index) {
 
     const region = regions[index];
 
+    zooDisplay.innerHTML = "";
+
+    const title = document.createElement("h2");
+    title.textContent = `Animals of the ${region.name}`;
+
+    const description = document.createElement("p");
+    description.textContent = region.description;
+
+    zooDisplay.appendChild(title);
+    zooDisplay.appendChild(description);
+
+    const animalLinks = document.createElement("div");
+    zooDisplay.appendChild(animalLinks);
+
+    for (let i = 0; i < region.animals.length; i++) {
+        const animal = region.animals[i];
+
+        const animalId = animal.name.toLowerCase().replaceAll(" ", "-");
+
+        const animalLink = document.createElement("a");
+        animalLink.textContent = animal.name;
+        animalLink.href = `#${animalId}`;
+
+        animalLinks.appendChild(animalLink);
+
+        if (i < region.animals.length - 1) {
+            animalLinks.append(" | ");
+        }
+
+        const animalTitle = document.createElement("h3");
+        animalTitle.textContent = animal.name;
+        animalTitle.id = animalId;
+
+        const animalDescription = document.createElement("p");
+        animalDescription.textContent = animal.description;
+
+        zooDisplay.appendChild(animalTitle);
+        zooDisplay.appendChild(animalDescription);
+    }
+/*
     let content = `Animals of the ${region.name}
 
 ${region.description}
@@ -231,6 +271,7 @@ ${region.animals[i].description}
     }
 
     zooDisplay.textContent = content;
+*/
 
     challengeButton.hidden = !region.challenge;
 }
