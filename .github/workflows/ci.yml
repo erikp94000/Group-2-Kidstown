@@ -37,7 +37,6 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Syntax-check all Perl scripts
-        continue-on-error: true
         run: |
           find cgi-bin scripts -type f \( -name '*.pl' -o -name '*.cgi' \) -print0 \
             | xargs -0 -I{} perl -c "{}"
@@ -52,19 +51,17 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
+          cache: ${{ hashFiles('package-lock.json') != '' && 'npm' || '' }} 
 
       - if: ${{ hashFiles('package-lock.json') != '' }}
         run: npm ci
-
       - if: ${{ hashFiles('package-lock.json') != '' }}
         run: npm run lint --if-present
-
       - if: ${{ hashFiles('package-lock.json') != '' }}
         run: npm test --if-present
 
   build-and-deploy:
-    # TODO: Once the JS conversion is complete and package-lock.json is a
+     # TODO: Once the JS conversion is complete and package-lock.json is a
     # permanent fixture, remove the `hashFiles('package-lock.json') != ''`
     # guards below — they were only needed during the Perl-to-JS migration
     # while this repo sometimes had no JS to build yet.
@@ -87,7 +84,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
+          cache: ${{ hashFiles('package-lock.json') != '' && 'npm' || '' }}
 
       - if: ${{ hashFiles('package-lock.json') != '' }}
         run: npm ci
