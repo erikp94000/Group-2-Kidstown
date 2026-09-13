@@ -1,0 +1,104 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  repository-checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for whitespace errors
+        run: git diff --check "$(git merge-base origin/main HEAD)" HEAD
+
+      - name: Verify entry files
+        run: |
+          test -f index.html
+          test -f cgi-bin/kt.cgi
+          test -f cgi-bin/kt.ini
+          test -d graphics
+          test -d scripts
+          test -d data
+
+  perl-checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Syntax-check all Perl scripts
+        run: |
+          find cgi-bin scripts -type f \( -name '*.pl' -o -name '*.cgi' \) -print0 \
+            | xargs -0 -I{} perl -c "{}"
+
+  lint-and-test:
+    needs: repository-checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - if: ${{ hashFiles('package-lock.json') != '' }}
+        run: npm ci
+
+      - if: ${{ hashFiles('package-lock.json') != '' }}
+        run: npm run lint --if-present
+
+      - if: ${{ hashFiles('package-lock.json') != '' }}
+        run: npm test --if-present
+
+  build-and-deploy:
+    # TODO: Once the JS conversion is complete and package-lock.json is a
+    # permanent fixture, remove the `hashFiles('package-lock.json') != ''`
+    # guards below — they were only needed during the Perl-to-JS migration
+    # while this repo sometimes had no JS to build yet.
+    if: github.ref == 'refs/heads/main'
+    needs: [lint-and-test, perl-checks]
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - if: ${{ hashFiles('package-lock.json') != '' }}
+        run: npm ci
+
+      - if: ${{ hashFiles('package-lock.json') != '' }}
+        run: npm run build
+
+      - if: ${{ hashFiles('package-lock.json') != '' }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - if: ${{ hashFiles('package-lock.json') != '' }}
+        id: deployment
+        uses: actions/deploy-pages@v4
