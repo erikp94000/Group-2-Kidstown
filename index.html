@@ -1,33 +1,151 @@
-<HTML>
-<HEAD>
-  <TITLE>Visit KidsTown!</TITLE>
-  <meta name="description" content="KidsTown - web site produced by the Children's Literacy Project designed to promote children's literacy"><meta name="keywords" content="literacy, family, children, games, fun, education, educational games, edutainment">
-  <meta name="verify-v1" content="xnUF3lOhts6NXGI4oQBDkimDkW5YceC+y9fApyG/FfQ=" />
-</HEAD>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KidsTown</title>
+    <meta name="description" content="KidsTown - an interactive children's literacy site with stories, puzzles, and games. Originally by the Children's Literacy Project.">
+    <meta name="keywords" content="literacy, family, children, games, fun, education, educational games">
 
-<BODY BGCOLOR="#EEE2B4" TEXT="BLACK" ALINK="RED" LINK="BLUE" VLINK="PURPLE">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-<DIV ALIGN="CENTER">
-<B>
-<FONT SIZE=+4>KidsTown</FONT><BR><FONT SIZE=+2>Visitor Center</FONT>
-</B>
-</DIV>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-<BR CLEAR=ALL>
+    <main id="content">
 
-<DIV ALIGN="CENTER">
-<FONT SIZE=+2><B><A HREF="./cgi-bin/kt.cgi?KEY=1000">Click to visit
-KidsTown.</A></B></FONT>
+        <section class="entry-page">
 
-<BR><BR>
-<DIV ALIGN="CENTER">
-  <A HREF="./cgi-bin/kt.cgi?KEY=1000">
-    <IMG SRC="graphics/home/hometown.gif"
-     LOWSRC="graphics/home/hometown-lowsrc.gif"
-     ALT="Go To KidsTown"
-     WIDTH="155" HEIGHT="159" HSPACE="0" VSPACE="0"
-     BORDER="1"></A>
-</DIV>
+            <div class="entry-page__header">
+                <p class="entry-page__welcome">Welcome to</p>
+                <h1 class="entry-page__brand">KidsTown</h1>
+            </div>
 
-</BODY>
-</HTML>
+            <div class="entry-page__map-wrap">
+                <img
+                    src="graphics/home/hometown.gif"
+                    alt="Illustrated map of KidsTown. Click a building to visit that part of town."
+                    class="entry-page__map"
+                    usemap="#kidstown-map"
+                    width="310"
+                    height="318">
+
+                <map name="kidstown-map">
+                    <area shape="poly"
+                          coords="10,37,27,37,38,20,53,16,54,6,71,1,74,18,85,20,88,33,106,34,105,49,94,64,33,71,17,45,7,42,10,37"
+                          href="#township"
+                          alt="Go to the Town Ship">
+                    <area shape="poly"
+                          coords="91,101,111,106,136,96,143,89,157,89,176,94,191,75,194,65,204,60,211,67,204,71,200,71,192,96,189,108,188,137,127,137,126,115,109,116,91,102"
+                          href="#museum"
+                          alt="Go to the Museum">
+                    <area shape="poly"
+                          coords="168,2,216,22,236,11,241,2,260,1,260,19,241,24,242,36,284,29,308,15,308,46,292,60,231,70,193,55,166,32,161,19,162,2"
+                          href="#zoo"
+                          alt="Go to the Zoo">
+                    <area shape="poly"
+                          coords="237,287,238,272,239,265,239,246,233,239,257,214,257,196,263,186,267,180,270,169,285,171,282,182,271,179,273,185,279,194,281,206,285,206,305,235,301,240,300,263,279,288,242,287"
+                          href="#school"
+                          alt="Go to the School">
+                    <area shape="poly"
+                          coords="226,145,239,132,240,109,234,99,260,95,268,87,270,70,290,72,288,87,273,84,285,93,289,101,309,118,307,124,307,161,251,173,226,144"
+                          href="#cityhall"
+                          alt="Go to City Hall">
+                    <area shape="poly"
+                          coords="7,195,8,151,35,143,36,132,86,130,86,143,90,144,91,194,62,201,35,202,7,195"
+                          href="#toystore"
+                          alt="Go to the Toy Store">
+                    <area shape="poly"
+                          coords="7,307,4,222,35,216,61,227,63,287,10,310,7,307"
+                          href="#citypark"
+                          alt="Go to City Park">
+                    <area shape="poly"
+                          coords="97,301,102,241,143,217,169,227,167,280,131,309,113,312,97,301"
+                          href="#library"
+                          alt="Go to the Library">
+                </map>
+            </div>
+
+            <div class="entry-page__intro">
+                <p class="entry-page__discover">Discover Exciting KidsTown!</p>
+                <p class="entry-page__links">
+                    <a href="#citypark" class="zone-link zone-link--citypark">Go on a journey,</a>
+                    <a href="#cityhall" class="zone-link zone-link--cityhall">become a detective,</a>
+                    <br>
+                    <a href="#school" class="zone-link zone-link--school">solve puzzles and play games,</a>
+                    <br>
+                    <a href="#zoo" class="zone-link zone-link--zoo">learn about animals of different regions,</a>
+                    <br>
+                    <a href="#library" class="zone-link zone-link--library">explore the United States,</a>
+                    <span>and MORE ...</span>
+                </p>
+                <p class="entry-page__poi">
+                    Visit <span class="entry-page__poi-brand">KidsTown</span> Points of Interest!
+                </p>
+                <p class="entry-page__hint">
+                    Just click on the picture above or<br>
+                    on the buttons or words below.
+                </p>
+            </div>
+
+            <nav class="zone-nav" aria-label="KidsTown zones">
+                <ul class="zone-nav__list">
+                    <li><a href="#" class="zone-nav__item zone-nav__item--kidstown">
+                        <img src="graphics/home/navbtn_town.gif" alt="" class="zone-nav__icon">
+                        <span>KidsTown</span>
+                    </a></li>
+                    <li><a href="#cityhall" class="zone-nav__item zone-nav__item--cityhall">
+                        <img src="graphics/home/navbtn_cityhall.gif" alt="" class="zone-nav__icon">
+                        <span>CityHall</span>
+                    </a></li>
+                    <li><a href="#school" class="zone-nav__item zone-nav__item--school">
+                        <img src="graphics/home/navbtn_school.gif" alt="" class="zone-nav__icon">
+                        <span>School</span>
+                    </a></li>
+                    <li><a href="#library" class="zone-nav__item zone-nav__item--library">
+                        <img src="graphics/home/navbtn_library.gif" alt="" class="zone-nav__icon">
+                        <span>Library</span>
+                    </a></li>
+                    <li><a href="#zoo" class="zone-nav__item zone-nav__item--zoo">
+                        <img src="graphics/home/navbtn_zoo.gif" alt="" class="zone-nav__icon">
+                        <span>Zoo</span>
+                    </a></li>
+                    <li><a href="#toystore" class="zone-nav__item zone-nav__item--toystore">
+                        <img src="graphics/home/navbtn_toystore.gif" alt="" class="zone-nav__icon">
+                        <span>ToyStore</span>
+                    </a></li>
+                    <li><a href="#citypark" class="zone-nav__item zone-nav__item--citypark">
+                        <img src="graphics/home/navbtn_citypark.gif" alt="" class="zone-nav__icon">
+                        <span>CityPark</span>
+                    </a></li>
+                    <li><a href="#township" class="zone-nav__item zone-nav__item--township">
+                        <img src="graphics/home/navbtn_township.gif" alt="" class="zone-nav__icon">
+                        <span>TownShip</span>
+                    </a></li>
+                    <li><a href="#museum" class="zone-nav__item zone-nav__item--museum">
+                        <img src="graphics/home/navbtn_museum.gif" alt="" class="zone-nav__icon">
+                        <span>Museum</span>
+                    </a></li>
+                    <li><a href="#help" class="zone-nav__item zone-nav__item--help">
+                        <img src="graphics/home/navbtn_help.gif" alt="" class="zone-nav__icon">
+                        <span>Help</span>
+                    </a></li>
+                </ul>
+            </nav>
+
+            <div class="entry-page__footer-text">
+                <p>
+                    <strong>KidsTown</strong> is an interactive experience with stories, puzzles, and games, focused on enhancing the literacy of elementary school-aged children. Learn how the <strong>University of Colorado at Denver</strong> and the <strong>Tattered Cover Book Store</strong> joined together in <a href="#about">The Making of KidsTown</a>.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
