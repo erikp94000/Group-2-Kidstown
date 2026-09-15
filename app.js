@@ -1,8 +1,24 @@
-/* KidsTown SPA router — hash-based zone switching */
+/* =========================================================
+   KIDSTOWN — SPA ROUTER
+   =========================================================
+   Hash-based router with folder-per-zone structure.
+
+   URL patterns:
+     #                 → home zone (zones/home/index.html)
+     #cityhall         → cityhall landing (zones/cityhall/index.html)
+     #cityhall/bbb1    → cityhall sub-page (zones/cityhall/bbb1.html)
+     #museum/planet-3  → museum sub-page (zones/museum/planet-3.html)
+   ========================================================= */
 
 (function () {
     'use strict';
 
+    // ------- CONFIG -------
+
+    // Zones that exist as folders in zones/. Adding a zone here doesn't
+    // create the folder — you still need to actually make zones/<name>/.
+    // Sub-pages inside a zone don't need to be listed; the router accepts
+    // any #<zone>/<subpage> as long as the zone is in this list.
     const VALID_ZONES = [
         'home',
         'cityhall',
@@ -19,20 +35,58 @@
     const CONTENT = document.getElementById('content');
     const ENTRY_PAGE_HTML = CONTENT.innerHTML;
 
+    // ------- CORE ROUTER -------
+
     function handleRoute() {
         const hash = window.location.hash.slice(1).toLowerCase().trim();
 
+        updateBodyZoneClass(hash);
+
+        // Empty hash → show the KidsTown entry page.
         if (hash === '' || hash === 'home') {
             renderEntryPage();
             return;
         }
 
-        if (!VALID_ZONES.includes(hash)) {
+        // Parse the hash: "cityhall" or "cityhall/bbb1"
+        const parts = hash.split('/');
+        const zoneName = parts[0];
+        const subPage = parts.slice(1).join('/'); // supports nested subpages if ever needed
+
+        // Unknown zone → not-found message.
+        if (!VALID_ZONES.includes(zoneName)) {
             renderNotFound(hash);
             return;
         }
 
-        loadZone(hash);
+        // Build the file path.
+        // #cityhall          → zones/cityhall/index.html
+        // #cityhall/bbb1     → zones/cityhall/bbb1.html
+        const filePath = subPage
+            ? 'zones/' + zoneName + '/' + subPage + '.html'
+            : 'zones/' + zoneName + '/index.html';
+
+        loadZone(filePath, hash);
+    }
+
+    /**
+     * Add a zone-specific class to <body> so CSS can theme the whole
+     * page (background, etc.) based on which zone is showing.
+     */
+    function updateBodyZoneClass(hash) {
+        // Remove any existing zone-* classes from body
+        document.body.className = document.body.className
+            .split(' ')
+            .filter(function (cls) { return !cls.startsWith('zone-'); })
+            .join(' ')
+            .trim();
+
+        if (hash === '' || hash === 'home') {
+            return;
+        }
+
+        const zoneName = hash.split('/')[0];
+        document.body.classList.add('zone-' + zoneName);
     }
 
     function renderEntryPage() {
@@ -41,10 +95,10 @@
         scrollToTop();
     }
 
-    function loadZone(zoneName) {
+    function loadZone(filePath, hash) {
         CONTENT.innerHTML = '<p class="loading">Loading…</p>';
 
-        fetch('zones/' + zoneName + '.html')
+        fetch(filePath)
             .then(function (response) {
                 if (!response.ok) {
                     throw new Error('Zone file returned status ' + response.status);
@@ -53,17 +107,17 @@
             })
             .then(function (html) {
                 CONTENT.innerHTML = html;
-                document.title = capitalize(zoneName) + ' — KidsTown';
+                document.title = capitalize(hash.replace(/[\/-]/g, ' ')) + ' — KidsTown';
                 scrollToTop();
                 runInlineScripts(CONTENT);
             })
             .catch(function (err) {
-                console.error('Failed to load zone "' + zoneName + '":', err);
+                console.error('Failed to load zone at "' + filePath + '":', err);
                 CONTENT.innerHTML =
                     '<section class="zone-content">' +
                     '<h1>Zone not ready yet</h1>' +
                     '<p class="zone-content__lead">' +
-                    'The <strong>' + escapeHtml(zoneName) + '</strong> zone is still being built. ' +
+                    'The <strong>' + escapeHtml(hash) + '</strong> zone is still being built. ' +
                     'Try one of the other zones below, or <a href="#">head back to KidsTown</a>.' +
                     '</p>' +
                     '</section>';
@@ -84,6 +138,8 @@
         document.title = 'Not found — KidsTown';
         scrollToTop();
     }
+
+    // ------- HELPERS -------
 
     function scrollToTop() {
         try {
@@ -116,10 +172,9 @@
         });
     }
 
-    if (window.location.hash && window.location.hash !== '#') {
-        handleRoute();
-    }
+    // ------- WIRE UP -------
 
+    handleRoute();
     window.addEventListener('hashchange', handleRoute);
 
 })();

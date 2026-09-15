@@ -501,3 +501,402 @@ p {
         animation-duration: 0.01ms !important;
     }
 }
+/* ==========================================================
+   CITYHALL ZONE
+   ========================================================== */
+
+/* Landing page */
+.cityhall__hero {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-6);
+    align-items: center;
+    background: var(--color-surface);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--space-6);
+}
+
+.cityhall__hero-img {
+    max-width: 200px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.cityhall__hero-text h1 {
+    text-align: left;
+    margin-bottom: var(--space-4);
+    background: linear-gradient(135deg, var(--color-zone-cityhall) 0%, var(--color-zone-cityhall-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cityhall__intro {
+    font-size: var(--size-lead);
+    margin-bottom: var(--space-4);
+}
+
+.cityhall__cases {
+    text-align: center;
+    margin-bottom: var(--space-7);
+}
+
+.cityhall__cases h2 {
+    color: var(--color-ink);
+    margin-bottom: var(--space-5);
+}
+
+.cityhall__case-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-5);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cityhall__case {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-6) var(--space-5);
+    background: var(--color-surface);
+    border: 3px solid transparent;
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: var(--color-ink);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.cityhall__case:hover,
+.cityhall__case:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.cityhall__case--alien:hover { border-color: var(--color-zone-cityhall); }
+.cityhall__case--burglary:hover { border-color: var(--color-zone-school); }
+
+.cityhall__case-label {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: var(--size-small);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-ink-soft);
+    margin-bottom: var(--space-2);
+}
+
+.cityhall__case-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--size-h2);
+    background: linear-gradient(135deg, var(--color-zone-cityhall) 0%, var(--color-zone-cityhall-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cityhall__case--burglary .cityhall__case-title {
+    background: linear-gradient(135deg, var(--color-zone-school) 0%, var(--color-zone-school-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cityhall__wish {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: var(--size-h2);
+    color: #cf0000;
+    margin-bottom: var(--space-4);
+}
+
+.cityhall__footer {
+    text-align: center;
+    color: var(--color-ink-soft);
+    font-size: var(--size-small);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--color-line);
+}
+
+/* Story pages (shared across all cityhall stories) */
+.cityhall-story {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.story__panel {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-6);
+    align-items: center;
+    background: var(--color-surface);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--space-5);
+}
+
+.story__image img {
+    max-width: 200px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Narrator text — green in the original */
+.story__narration {
+    font-family: var(--font-heading);
+    font-size: var(--size-lead);
+    font-weight: 500;
+    line-height: 1.5;
+    color: #1e7a3c;
+}
+
+/* Character dialogue variant — red in the original */
+.story__narration--red {
+    color: #a00000;
+}
+/* Narrator variant — blue (Willy explaining the diary) */
+.story__narration--blue {
+    color: #1e3a8a;
+}
+
+/* Narrator variant — copper/brown (Willy explaining the escape) */
+.story__narration--copper {
+    color: #8b4513;
+}
+/* Narrator variant — purple (historian, expert characters) */
+.story__narration--purple {
+    color: #6a1b9a;
+}
+
+/* Story artifact box — for showing diary pages, notes, letters */
+.story__artifact {
+    background: #fefaee;
+    border: 2px solid #d4a574;
+    border-radius: var(--radius);
+    padding: var(--space-5);
+    margin: var(--space-4) 0;
+    font-family: 'Courier New', 'Consolas', monospace;
+    box-shadow: inset 0 0 0 1px rgba(212, 165, 116, 0.3);
+}
+
+.story__artifact p {
+    margin-bottom: var(--space-3);
+    line-height: 1.7;
+}
+
+.story__artifact p:last-child {
+    margin-bottom: 0;
+}
+
+.story__artifact-date {
+    font-weight: 700;
+    text-align: center;
+    color: var(--color-ink);
+    border-bottom: 1px dashed #d4a574;
+    padding-bottom: var(--space-2);
+    margin-bottom: var(--space-3) !important;
+}
+
+.story__artifact-signature {
+    text-align: right;
+    font-style: italic;
+    margin-top: var(--space-3) !important;
+    color: var(--color-ink-soft);
+}
+
+.story__dialogue {
+    background: var(--color-surface);
+    padding: var(--space-5) var(--space-6);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--space-6);
+    font-size: var(--size-lead);
+    line-height: 1.7;
+}
+
+.story__dialogue p {
+    margin-bottom: var(--space-4);
+}
+
+.story__dialogue p:last-child {
+    margin-bottom: 0;
+}
+/* Story conclusion — detective's realization moment */
+.story__conclusion {
+    font-weight: 700;
+    font-style: italic;
+    color: var(--color-zone-cityhall-deep);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-line);
+    margin-top: var(--space-4);
+}
+/* Evidence box — for the detective's reveal of clues */
+.story__evidence {
+    background: #fefaee;
+    border-left: 6px solid var(--color-zone-cityhall);
+    padding: var(--space-5);
+    margin: var(--space-5) 0;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.story__evidence-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--size-small);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-zone-cityhall-deep);
+    margin-bottom: var(--space-3) !important;
+}
+
+.story__evidence p:not(.story__evidence-title) {
+    margin-bottom: var(--space-3);
+}
+
+.story__evidence p:last-child {
+    margin-bottom: 0;
+}
+
+/* Case Closed banner — for story endings */
+.story__case-closed {
+    text-align: center;
+    padding: var(--space-6) var(--space-5);
+    background: linear-gradient(135deg, var(--color-zone-cityhall) 0%, var(--color-zone-cityhall-deep) 100%);
+    border-radius: var(--radius-lg);
+    margin: var(--space-6) 0;
+    box-shadow: var(--shadow-md);
+}
+
+.story__case-closed-label {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: var(--size-small);
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--color-surface);
+    opacity: 0.8;
+    margin-bottom: var(--space-2) !important;
+}
+
+.story__case-closed-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--size-h2);
+    color: var(--color-surface);
+    margin: 0 !important;
+}
+
+.story__choices {
+    text-align: center;
+    padding: var(--space-5);
+    background: var(--color-surface-alt);
+    border-radius: var(--radius-lg);
+    border: 2px dashed var(--color-line);
+    margin-bottom: var(--space-6);
+}
+
+.story__prompt {
+    font-family: var(--font-heading);
+    font-size: var(--size-lead);
+    font-weight: 600;
+    color: var(--color-ink-soft);
+    margin-bottom: var(--space-3);
+}
+
+.story__choice-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+}
+
+.story__choice {
+    display: inline-block;
+    padding: var(--space-3) var(--space-5);
+    background: var(--color-surface);
+    color: var(--color-ink);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--size-lead);
+    border-radius: 999px;
+    border: 2px solid var(--color-zone-cityhall);
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.story__choice:hover,
+.story__choice:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    background: var(--color-zone-cityhall);
+    color: var(--color-surface);
+}
+
+.story__choice-or {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-ink-soft);
+    padding: 0 var(--space-2);
+}
+
+.story__note {
+    text-align: center;
+    padding: var(--space-5);
+    background: var(--color-surface-alt);
+    border-radius: var(--radius);
+    color: var(--color-ink-soft);
+}
+
+.story__note p:last-child {
+    margin-bottom: 0;
+    margin-top: var(--space-3);
+}
+
+/* Cityhall mobile */
+@media (max-width: 640px) {
+    .cityhall__hero,
+    .story__panel {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: var(--space-4);
+    }
+
+    .cityhall__hero-img,
+    .story__image img {
+        margin: 0 auto;
+    }
+
+    .cityhall__hero-text h1 {
+        text-align: center;
+    }
+}
+/* ==========================================================
+   PER-ZONE BACKGROUND THEMES
+   ==========================================================
+   When a zone is active, <body> gets a "zone-<name>" class
+   (added by app.js). Each zone can override the default
+   sunny gradient with its own theme.
+   ========================================================== */
+
+/* CityHall — detective blue atmosphere */
+body.zone-cityhall {
+    background: linear-gradient(180deg, #7dc3e0 0%, #38B0DE 40%, #1D6B8F 100%);
+}
+body.zone-cityhall .story__panel,
+body.zone-cityhall .story__dialogue,
+body.zone-cityhall .story__choices,
+body.zone-cityhall .cityhall__hero,
+body.zone-cityhall .story__case-closed,
+body.zone-cityhall .entry-page__footer-text,
+body.zone-cityhall .story__note {
+    /* Slightly stronger shadow to help the cream cards pop against the blue */
+    box-shadow: 0 8px 24px rgba(15, 45, 75, 0.25);
+}
