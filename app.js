@@ -3,37 +3,90 @@
 (function () {
     'use strict';
 
-    const VALID_ZONES = [
-        'home',
-        'cityhall',
-        'citypark',
-        'library',
-        'museum',
-        'school',
-        'toystore',
-        'township',
-        'zoo',
-        'help'
-    ];
-
+const VALID_ZONES = [
+    'home',
+    'cityhall',
+    'cityhall-bbb1',
+    'cityhall-bbb2a',
+    'cityhall-bbb3-5',
+    'cityhall-bbb3a',
+    'cityhall-bbb3c',
+    'cityhall-bbb4-6',
+    'cityhall-bbb4a',
+    'cityhall-bbb4c',
+    'cityhall-bbb4s',
+    'cityhall-bbb5-6',
+    'cityhall-bbb5a',
+    'cityhall-bbb5s',
+    'cityhall-bbb6-4',
+    'cityhall-bbb6-5',
+    'cityhall-bbb6a',
+    'cityhall-bbb6b',
+    'cityhall-bbb6s',
+    'cityhall-bbbend',
+    'cityhall-cap1',
+    'cityhall-cap2',
+    'cityhall-cap3',
+    'cityhall-cap4',
+    'cityhall-cap5',
+    'cityhall-capend',
+    'citypark',
+    'library',
+    'museum',
+    'school',
+    'toystore',
+    'township',
+    'zoo',
+    'help'
+];
     const CONTENT = document.getElementById('content');
     const ENTRY_PAGE_HTML = CONTENT.innerHTML;
 
     function handleRoute() {
-        const hash = window.location.hash.slice(1).toLowerCase().trim();
+    const hash = window.location.hash.slice(1).toLowerCase().trim();
 
-        if (hash === '' || hash === 'home') {
-            renderEntryPage();
-            return;
-        }
+    updateBodyZoneClass(hash);
 
-        if (!VALID_ZONES.includes(hash)) {
-            renderNotFound(hash);
-            return;
-        }
-
-        loadZone(hash);
+    if (hash === '' || hash === 'home') {
+        renderEntryPage();
+        return;
     }
+
+    if (!VALID_ZONES.includes(hash)) {
+        renderNotFound(hash);
+        return;
+    }
+
+    loadZone(hash);
+}
+
+/**
+ * Add a zone-specific class to <body> so CSS can theme the whole
+ * page (background, etc.) based on which zone is showing.
+ *
+ * Examples:
+ *   #cityhall         → body class "zone-cityhall"
+ *   #cityhall-bbb1    → body class "zone-cityhall"
+ *   #museum           → body class "zone-museum"
+ *   # (empty)         → no zone class (default home theme)
+ */
+function updateBodyZoneClass(hash) {
+    // Remove any existing zone-* classes from body
+    document.body.className = document.body.className
+        .split(' ')
+        .filter(function (cls) { return !cls.startsWith('zone-'); })
+        .join(' ')
+        .trim();
+
+    if (hash === '' || hash === 'home') {
+        return; // default background (home theme)
+    }
+
+    // Take the part of the hash before the first dash as the zone name
+    // (e.g. "cityhall-bbb1" → "cityhall")
+    const zoneName = hash.split('-')[0];
+    document.body.classList.add('zone-' + zoneName);
+}
 
     function renderEntryPage() {
         CONTENT.innerHTML = ENTRY_PAGE_HTML;

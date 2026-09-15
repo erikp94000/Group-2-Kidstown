@@ -1,0 +1,48 @@
+<!--
+    ZONE: CityHall - Bank Burglary story
+    KEY 5080 (bbb3c.pl) - The Woodrow Wilson diary page (alt path)
+    Same diary content as bbb3a, but reached from a different branch (bbb4a → this).
+    Choices: speak with historian (bbb5-6 - KEY 5160) or examine the vault (bbb6-5 - KEY 5200)
+-->
+
+<section class="zone-content cityhall-story">
+    <a href="#cityhall" class="zone-back">← Back to CityHall</a>
+
+    <div class="story__panel">
+        <div class="story__image">
+            <img src="graphics/cityhall/bbb3.gif" alt="The stolen diary page">
+        </div>
+        <div class="story__narration story__narration--blue">
+            "It is a page from former U.S. President Woodrow Wilson's diary," Willy continues.
+            "It is one of the bank's most prized possessions."
+        </div>
+    </div>
+
+    <div class="story__dialogue">
+        <p>
+            "It was recently appraised at $500,000. I had never seen it before, but the bank
+            manager talks about it so often that I immediately knew what it was when I approached
+            the thief."
+        </p>
+        <p>You and Detective Anders read the page:</p>
+
+        <div class="story__artifact">
+            <p class="story__artifact-date">April 16, 1917</p>
+            <p>
+                Today we declared war on Germany and the other Central Powers. I have lived
+                through many bloody conflicts in my life, but World War I is indeed the most
+                terrible I have ever witnessed.
+            </p>
+            <p class="story__artifact-signature">Thomas Woodrow Wilson</p>
+        </div>
+    </div>
+
+    <div class="story__choices">
+        <p class="story__prompt">Do you want to</p>
+        <div class="story__choice-list">
+            <a href="#cityhall-bbb5-6" class="story__choice">speak with a historian about the diary entry</a>
+            <span class="story__choice-or">or</span>
+            <a href="#cityhall-bbb6-5" class="story__choice">examine the vault?</a>
+        </div>
+    </div>
+</section>
