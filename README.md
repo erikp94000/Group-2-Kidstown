@@ -46,3 +46,87 @@ informative, educational, and entertaining.
 Through the Children's Literacy Project, UCD and the Tattered Cover
 demonstrated their commitment to supporting the educational needs of local
 elementary and university students, and those of children web-wide.
+
+-----
+
+# 2026 Modernization
+
+This repository contains a modernized version of the 1998 KidsTown site,
+rebuilt as a Single Page Application (SPA) using vanilla HTML, CSS, and
+JavaScript. The modernization was undertaken by MSU Denver students in
+Fall 2026 as part of CS39AH (AI as Software Development Teammate).
+
+The goal is to preserve the original site's content, character, and
+interactive design while replacing the 1998 Perl/CGI backend with a
+static architecture that runs on GitHub Pages with no server required.
+
+## How to Run Locally
+
+The SPA uses `fetch()` to load zone fragments, which browsers block when
+opening files directly. You need a local web server:
+
+**Option 1 — Python: python3 -m http.server 8000**
+Then open `http://localhost:8000` in your browser.
+
+**Option 2 — VS Code Live Server extension:**
+Right-click `index.html` → "Open with Live Server"
+
+## Repository Layout
+
+### Active — the running SPA
+- `index.html` — SPA shell with the KidsTown entry page and image map
+- `app.js` — hash-based router that swaps zone content into `<main>`
+- `styles.css` — shared theme (sunny gradient, zone accent colors, story styles)
+- `zones/<zone>/` — one folder per zone containing the HTML fragments
+- `graphics/` — image assets (reused from the original site)
+
+### Reference — do NOT modify, do NOT delete
+These preserve the original 1998 KidsTown as ground truth and are required
+by the CI pipeline:
+- `cgi-bin/kt.cgi` — original Perl dispatcher (not executed on GitHub Pages)
+- `cgi-bin/kt.db` — routing table mapping KEYs to scripts. **Every zone's KEYs
+  are documented here** — check this file to see which KEYs belong to your
+  assigned zone and which Perl scripts build each page.
+- `cgi-bin/kt.ini` — original server config
+- `scripts/` — original Perl page-generation scripts, organized by zone.
+  **These are the source-of-truth content that needs to be converted into
+  HTML fragments in the new `zones/` folder.** To convert a page: read the
+  matching `.pl` file, translate the HTML it prints into a modern zone
+  fragment, and save it as `zones/<yourzone>/<page>.html`.
+- `data/` — original quiz/story data files
+
+## Zone Status
+
+| Zone      | Status | Notes                                              |
+|-----------|--------|----------------------------------------------------|
+| Home      | Done   | Entry map with image map + zone navigation         |
+| CityHall  | Done   | Both interactive mysteries fully playable          |
+| CityPark  | Stub   | Landing placeholder only                           |
+| Library   | Stub   | Landing placeholder only                           |
+| Museum    | Stub   | Landing placeholder only                           |
+| School    | Stub   | Landing placeholder only                           |
+| ToyStore  | Stub   | Landing placeholder only                           |
+| TownShip  | Stub   | Landing placeholder only                           |
+| Zoo       | Stub   | Landing placeholder only                           |
+
+The CityHall help page (KEY 5900) is not yet built.
+
+## How to Add or Complete a Zone
+
+1. Find your zone's KEYs in `cgi-bin/kt.db`
+2. Read the matching Perl scripts in `scripts/<yourzone>/` to see the
+   original HTML each page produced
+3. Create HTML fragments in `zones/<yourzone>/`:
+   - `zones/<yourzone>/index.html` — landing page for the zone
+   - `zones/<yourzone>/<subpage>.html` — sub-pages
+4. Use `href="#<yourzone>"` and `href="#<yourzone>/<subpage>"` for internal
+   links
+5. Your zone name is already in `VALID_ZONES` in `app.js` — no changes to
+   the router are needed
+
+See `zones/cityhall/` for a complete example with 27 pages and two
+interactive branching stories.
+
+## Live Site
+
+https://erikp94000.github.io/Group-2-Kidstown/
