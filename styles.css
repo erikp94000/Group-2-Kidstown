@@ -1,0 +1,902 @@
+/* =========================================================
+   KIDSTOWN — MODERNIZED THEME
+   ========================================================= */
+
+/* ---------- 1. DESIGN TOKENS ---------- */
+:root {
+    /* Palette — sunny gradient base with warm surfaces */
+    --color-bg-top:       #FFE07A;
+    --color-bg-bottom:    #FFA652;
+    --color-surface:      #FFF9E8;
+    --color-surface-alt:  #FFEECC;
+    --color-ink:          #2b1c10;
+    --color-ink-soft:     #6b4a2e;
+    --color-line:         rgba(43, 28, 16, 0.15);
+
+    /* Zone accent colors preserved from original mainPgTxt.pl */
+    --color-zone-citypark: #238E68;
+    --color-zone-cityhall: #38B0DE;
+    --color-zone-school:   #FF1CAE;
+    --color-zone-zoo:      #B87333;
+    --color-zone-library:  #2A4E9E;
+    --color-zone-poi:      #C41E7A;
+
+    /* Complementary "darker end" of each zone gradient
+       for the label gradient effect */
+    --color-zone-citypark-deep: #0F5F42;
+    --color-zone-cityhall-deep: #1D6B8F;
+    --color-zone-school-deep:   #A00C6E;
+    --color-zone-zoo-deep:      #6B4116;
+    --color-zone-library-deep:  #172F63;
+    --color-zone-poi-deep:      #7A0F4A;
+
+    /* Brand gradient — still used on the main KidsTown title */
+    --brand-gradient: linear-gradient(135deg, var(--color-zone-poi) 0%, var(--color-zone-cityhall) 100%);
+
+    /* Typography */
+    --font-heading: 'Fredoka', 'Trebuchet MS', 'Segoe UI', sans-serif;
+    --font-body:    'Nunito', 'Segoe UI', system-ui, sans-serif;
+
+    /* Type scale */
+    --size-brand:   clamp(3rem, 8vw, 5rem);
+    --size-welcome: clamp(1rem, 2vw, 1.25rem);
+    --size-h2:     clamp(1.5rem, 3vw, 2rem);
+    --size-lead:   clamp(1.125rem, 2vw, 1.375rem);
+    --size-body:   1.0625rem;
+    --size-small:  0.9375rem;
+
+    /* Spacing scale */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-7: 3rem;
+    --space-8: 4rem;
+
+    --content-max: 780px;
+    --radius: 12px;
+    --radius-lg: 24px;
+
+    --shadow-sm: 0 2px 6px rgba(43, 28, 16, 0.10);
+    --shadow-md: 0 6px 20px rgba(43, 28, 16, 0.15);
+    --shadow-lg: 0 16px 40px rgba(43, 28, 16, 0.20);
+}
+
+/* ---------- 2. BASE ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: var(--size-body);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+
+    background: linear-gradient(180deg, var(--color-bg-top) 0%, var(--color-bg-bottom) 100%);
+    background-attachment: fixed;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--color-zone-library);
+    text-decoration: none;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--color-ink);
+    outline-offset: 3px;
+    border-radius: 3px;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-ink);
+    line-height: 1.1;
+    margin: 0 0 var(--space-4);
+}
+
+p {
+    margin: 0 0 var(--space-4);
+}
+
+/* ---------- 3. LAYOUT ---------- */
+#content {
+    width: 100%;
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: var(--space-7) var(--space-4) var(--space-6);
+}
+
+.entry-page {
+    text-align: center;
+}
+
+/* ---------- 4. HERO / HEADER ---------- */
+.entry-page__header {
+    margin-bottom: var(--space-7);
+    position: relative;
+}
+
+.entry-page__welcome {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: var(--size-welcome);
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    margin: 0 0 var(--space-3);
+    color: var(--color-ink-soft);
+}
+
+.entry-page__brand {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--size-brand);
+    letter-spacing: -0.03em;
+    margin: 0;
+    line-height: 1;
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(196, 30, 122, 0.20));
+}
+
+/* ---------- 5. MAP CARD ---------- */
+.entry-page__map-wrap {
+    margin: 0 auto var(--space-7);
+    display: inline-block;
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+}
+
+.entry-page__map-wrap::before {
+    content: "";
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(ellipse, rgba(255, 224, 122, 0.5) 0%, transparent 70%);
+    z-index: -1;
+    border-radius: 50%;
+}
+
+.entry-page__map {
+    width: 310px;
+    height: 318px;
+    border-radius: var(--radius);
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+/* ---------- 6. INTRO SECTION ---------- */
+.entry-page__intro {
+    margin-bottom: var(--space-7);
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.entry-page__discover {
+    font-family: var(--font-heading);
+    font-size: var(--size-h2);
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-bottom: var(--space-5);
+}
+
+.entry-page__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--size-lead);
+    margin-bottom: var(--space-6);
+}
+
+.entry-page__links br {
+    display: none;
+}
+
+.entry-page__links > span {
+    color: var(--color-ink-soft);
+    font-size: var(--size-body);
+    margin-top: var(--space-2);
+}
+
+/* Colored links as pill-style buttons */
+.zone-link {
+    display: inline-block;
+    padding: var(--space-3) var(--space-5);
+    background: var(--color-surface);
+    color: var(--color-ink);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: var(--size-lead);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.zone-link:hover,
+.zone-link:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.zone-link--citypark { border-left: 6px solid var(--color-zone-citypark); }
+.zone-link--cityhall { border-left: 6px solid var(--color-zone-cityhall); }
+.zone-link--school   { border-left: 6px solid var(--color-zone-school); }
+.zone-link--zoo      { border-left: 6px solid var(--color-zone-zoo); }
+.zone-link--library  { border-left: 6px solid var(--color-zone-library); }
+
+.zone-link--citypark:hover { border-color: var(--color-zone-citypark); }
+.zone-link--cityhall:hover { border-color: var(--color-zone-cityhall); }
+.zone-link--school:hover   { border-color: var(--color-zone-school); }
+.zone-link--zoo:hover      { border-color: var(--color-zone-zoo); }
+.zone-link--library:hover  { border-color: var(--color-zone-library); }
+
+.entry-page__poi {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: var(--size-h2);
+    color: var(--color-zone-poi);
+    margin-bottom: var(--space-4);
+}
+
+.entry-page__poi-brand {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.2em;
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.entry-page__hint {
+    color: var(--color-ink-soft);
+    font-size: var(--size-body);
+    margin-bottom: 0;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+/* ---------- 7. THUMBNAIL NAV STRIP ---------- */
+.zone-nav {
+    margin-bottom: var(--space-7);
+    padding: var(--space-5);
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.zone-nav__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: var(--space-3);
+}
+
+.zone-nav__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--size-small);
+    border-radius: var(--radius);
+    background: var(--color-surface-alt);
+    border: 2px solid transparent;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.zone-nav__item span {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-decoration: none;
+    letter-spacing: -0.005em;
+}
+
+/* Per-zone label gradients — each matches its intro link color */
+.zone-nav__item--kidstown span {
+    background-image: var(--brand-gradient);
+}
+.zone-nav__item--cityhall span {
+    background-image: linear-gradient(135deg, var(--color-zone-cityhall) 0%, var(--color-zone-cityhall-deep) 100%);
+}
+.zone-nav__item--school span {
+    background-image: linear-gradient(135deg, var(--color-zone-school) 0%, var(--color-zone-school-deep) 100%);
+}
+.zone-nav__item--library span {
+    background-image: linear-gradient(135deg, var(--color-zone-library) 0%, var(--color-zone-library-deep) 100%);
+}
+.zone-nav__item--zoo span {
+    background-image: linear-gradient(135deg, var(--color-zone-zoo) 0%, var(--color-zone-zoo-deep) 100%);
+}
+.zone-nav__item--toystore span {
+    background-image: linear-gradient(135deg, var(--color-zone-school) 0%, var(--color-zone-poi) 100%);
+}
+.zone-nav__item--citypark span {
+    background-image: linear-gradient(135deg, var(--color-zone-citypark) 0%, var(--color-zone-citypark-deep) 100%);
+}
+.zone-nav__item--township span {
+    background-image: linear-gradient(135deg, var(--color-zone-cityhall) 0%, var(--color-zone-library) 100%);
+}
+.zone-nav__item--museum span {
+    background-image: linear-gradient(135deg, var(--color-zone-zoo) 0%, var(--color-zone-poi) 100%);
+}
+.zone-nav__item--help span {
+    background-image: linear-gradient(135deg, var(--color-ink-soft) 0%, var(--color-ink) 100%);
+}
+
+/* Per-zone hover border colors */
+.zone-nav__item--kidstown:hover { border-color: var(--color-zone-poi); }
+.zone-nav__item--cityhall:hover { border-color: var(--color-zone-cityhall); }
+.zone-nav__item--school:hover   { border-color: var(--color-zone-school); }
+.zone-nav__item--library:hover  { border-color: var(--color-zone-library); }
+.zone-nav__item--zoo:hover      { border-color: var(--color-zone-zoo); }
+.zone-nav__item--toystore:hover { border-color: var(--color-zone-school); }
+.zone-nav__item--citypark:hover { border-color: var(--color-zone-citypark); }
+.zone-nav__item--township:hover { border-color: var(--color-zone-cityhall); }
+.zone-nav__item--museum:hover   { border-color: var(--color-zone-zoo); }
+.zone-nav__item--help:hover     { border-color: var(--color-ink); }
+
+.zone-nav__item:hover,
+.zone-nav__item:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    background: var(--color-surface);
+}
+
+.zone-nav__icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: var(--radius);
+    background: var(--color-surface);
+    padding: 4px;
+    box-shadow: var(--shadow-sm);
+}
+
+/* ---------- 8. FOOTER TEXT ---------- */
+.entry-page__footer-text {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-5);
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    color: var(--color-ink);
+    font-size: var(--size-body);
+    line-height: 1.7;
+}
+
+.entry-page__footer-text a {
+    color: var(--color-zone-library);
+    font-weight: 700;
+    border-bottom: 2px solid var(--color-zone-library);
+    padding-bottom: 1px;
+}
+
+.entry-page__footer-text a:hover {
+    color: var(--color-zone-poi);
+    border-bottom-color: var(--color-zone-poi);
+}
+
+/* ---------- 9. ZONE CONTENT DEFAULTS ---------- */
+.zone-content {
+    text-align: left;
+}
+
+.zone-content h1 {
+    font-size: var(--size-brand);
+    text-align: center;
+    margin-bottom: var(--space-5);
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.zone-content h2 {
+    font-size: var(--size-h2);
+    margin-top: var(--space-7);
+}
+
+.zone-content__lead {
+    font-size: var(--size-lead);
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto var(--space-6);
+    color: var(--color-ink-soft);
+}
+
+.btn {
+    display: inline-block;
+    padding: var(--space-3) var(--space-6);
+    background: var(--color-ink);
+    color: var(--color-surface);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    border-radius: 999px;
+    border: 2px solid var(--color-ink);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.zone-back {
+    display: inline-block;
+    margin-bottom: var(--space-5);
+    font-weight: 700;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 600px) {
+    #content {
+        padding: var(--space-5) var(--space-3);
+    }
+
+    .zone-nav {
+        padding: var(--space-4);
+    }
+
+    .zone-nav__icon {
+        width: 52px;
+        height: 52px;
+    }
+
+    .zone-link {
+        padding: var(--space-2) var(--space-4);
+        font-size: var(--size-body);
+    }
+}
+
+@media (max-width: 380px) {
+    .entry-page__map {
+        width: 100%;
+        height: auto;
+        max-width: 310px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+/* ==========================================================
+   CITYHALL ZONE
+   ========================================================== */
+
+/* Landing page */
+.cityhall__hero {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-6);
+    align-items: center;
+    background: var(--color-surface);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--space-6);
+}
+
+.cityhall__hero-img {
+    max-width: 200px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.cityhall__hero-text h1 {
+    text-align: left;
+    margin-bottom: var(--space-4);
+    background: linear-gradient(135deg, var(--color-zone-cityhall) 0%, var(--color-zone-cityhall-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cityhall__intro {
+    font-size: var(--size-lead);
+    margin-bottom: var(--space-4);
+}
+
+.cityhall__cases {
+    text-align: center;
+    margin-bottom: var(--space-7);
+}
+
+.cityhall__cases h2 {
+    color: var(--color-ink);
+    margin-bottom: var(--space-5);
+}
+
+.cityhall__case-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-5);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cityhall__case {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-6) var(--space-5);
+    background: var(--color-surface);
+    border: 3px solid transparent;
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: var(--color-ink);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.cityhall__case:hover,
+.cityhall__case:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.cityhall__case--alien:hover { border-color: var(--color-zone-cityhall); }
+.cityhall__case--burglary:hover { border-color: var(--color-zone-school); }
+
+.cityhall__case-label {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: var(--size-small);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-ink-soft);
+    margin-bottom: var(--space-2);
+}
+
+.cityhall__case-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--size-h2);
+    background: linear-gradient(135deg, var(--color-zone-cityhall) 0%, var(--color-zone-cityhall-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cityhall__case--burglary .cityhall__case-title {
+    background: linear-gradient(135deg, var(--color-zone-school) 0%, var(--color-zone-school-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cityhall__wish {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: var(--size-h2);
+    color: #cf0000;
+    margin-bottom: var(--space-4);
+}
+
+.cityhall__footer {
+    text-align: center;
+    color: var(--color-ink-soft);
+    font-size: var(--size-small);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--color-line);
+}
+
+/* Story pages (shared across all cityhall stories) */
+.cityhall-story {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.story__panel {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-6);
+    align-items: center;
+    background: var(--color-surface);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--space-5);
+}
+
+.story__image img {
+    max-width: 200px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Narrator text — green in the original */
+.story__narration {
+    font-family: var(--font-heading);
+    font-size: var(--size-lead);
+    font-weight: 500;
+    line-height: 1.5;
+    color: #1e7a3c;
+}
+
+/* Character dialogue variant — red in the original */
+.story__narration--red {
+    color: #a00000;
+}
+/* Narrator variant — blue (Willy explaining the diary) */
+.story__narration--blue {
+    color: #1e3a8a;
+}
+
+/* Narrator variant — copper/brown (Willy explaining the escape) */
+.story__narration--copper {
+    color: #8b4513;
+}
+/* Narrator variant — purple (historian, expert characters) */
+.story__narration--purple {
+    color: #6a1b9a;
+}
+
+/* Story artifact box — for showing diary pages, notes, letters */
+.story__artifact {
+    background: #fefaee;
+    border: 2px solid #d4a574;
+    border-radius: var(--radius);
+    padding: var(--space-5);
+    margin: var(--space-4) 0;
+    font-family: 'Courier New', 'Consolas', monospace;
+    box-shadow: inset 0 0 0 1px rgba(212, 165, 116, 0.3);
+}
+
+.story__artifact p {
+    margin-bottom: var(--space-3);
+    line-height: 1.7;
+}
+
+.story__artifact p:last-child {
+    margin-bottom: 0;
+}
+
+.story__artifact-date {
+    font-weight: 700;
+    text-align: center;
+    color: var(--color-ink);
+    border-bottom: 1px dashed #d4a574;
+    padding-bottom: var(--space-2);
+    margin-bottom: var(--space-3) !important;
+}
+
+.story__artifact-signature {
+    text-align: right;
+    font-style: italic;
+    margin-top: var(--space-3) !important;
+    color: var(--color-ink-soft);
+}
+
+.story__dialogue {
+    background: var(--color-surface);
+    padding: var(--space-5) var(--space-6);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--space-6);
+    font-size: var(--size-lead);
+    line-height: 1.7;
+}
+
+.story__dialogue p {
+    margin-bottom: var(--space-4);
+}
+
+.story__dialogue p:last-child {
+    margin-bottom: 0;
+}
+/* Story conclusion — detective's realization moment */
+.story__conclusion {
+    font-weight: 700;
+    font-style: italic;
+    color: var(--color-zone-cityhall-deep);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-line);
+    margin-top: var(--space-4);
+}
+/* Evidence box — for the detective's reveal of clues */
+.story__evidence {
+    background: #fefaee;
+    border-left: 6px solid var(--color-zone-cityhall);
+    padding: var(--space-5);
+    margin: var(--space-5) 0;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.story__evidence-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--size-small);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-zone-cityhall-deep);
+    margin-bottom: var(--space-3) !important;
+}
+
+.story__evidence p:not(.story__evidence-title) {
+    margin-bottom: var(--space-3);
+}
+
+.story__evidence p:last-child {
+    margin-bottom: 0;
+}
+
+/* Case Closed banner — for story endings */
+.story__case-closed {
+    text-align: center;
+    padding: var(--space-6) var(--space-5);
+    background: linear-gradient(135deg, var(--color-zone-cityhall) 0%, var(--color-zone-cityhall-deep) 100%);
+    border-radius: var(--radius-lg);
+    margin: var(--space-6) 0;
+    box-shadow: var(--shadow-md);
+}
+
+.story__case-closed-label {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: var(--size-small);
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--color-surface);
+    opacity: 0.8;
+    margin-bottom: var(--space-2) !important;
+}
+
+.story__case-closed-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--size-h2);
+    color: var(--color-surface);
+    margin: 0 !important;
+}
+
+.story__choices {
+    text-align: center;
+    padding: var(--space-5);
+    background: var(--color-surface-alt);
+    border-radius: var(--radius-lg);
+    border: 2px dashed var(--color-line);
+    margin-bottom: var(--space-6);
+}
+
+.story__prompt {
+    font-family: var(--font-heading);
+    font-size: var(--size-lead);
+    font-weight: 600;
+    color: var(--color-ink-soft);
+    margin-bottom: var(--space-3);
+}
+
+.story__choice-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+}
+
+.story__choice {
+    display: inline-block;
+    padding: var(--space-3) var(--space-5);
+    background: var(--color-surface);
+    color: var(--color-ink);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--size-lead);
+    border-radius: 999px;
+    border: 2px solid var(--color-zone-cityhall);
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.story__choice:hover,
+.story__choice:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    background: var(--color-zone-cityhall);
+    color: var(--color-surface);
+}
+
+.story__choice-or {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-ink-soft);
+    padding: 0 var(--space-2);
+}
+
+.story__note {
+    text-align: center;
+    padding: var(--space-5);
+    background: var(--color-surface-alt);
+    border-radius: var(--radius);
+    color: var(--color-ink-soft);
+}
+
+.story__note p:last-child {
+    margin-bottom: 0;
+    margin-top: var(--space-3);
+}
+
+/* Cityhall mobile */
+@media (max-width: 640px) {
+    .cityhall__hero,
+    .story__panel {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: var(--space-4);
+    }
+
+    .cityhall__hero-img,
+    .story__image img {
+        margin: 0 auto;
+    }
+
+    .cityhall__hero-text h1 {
+        text-align: center;
+    }
+}
+/* ==========================================================
+   PER-ZONE BACKGROUND THEMES
+   ==========================================================
+   When a zone is active, <body> gets a "zone-<name>" class
+   (added by app.js). Each zone can override the default
+   sunny gradient with its own theme.
+   ========================================================== */
+
+/* CityHall — detective blue atmosphere */
+body.zone-cityhall {
+    background: linear-gradient(180deg, #7dc3e0 0%, #38B0DE 40%, #1D6B8F 100%);
+}
+body.zone-cityhall .story__panel,
+body.zone-cityhall .story__dialogue,
+body.zone-cityhall .story__choices,
+body.zone-cityhall .cityhall__hero,
+body.zone-cityhall .story__case-closed,
+body.zone-cityhall .entry-page__footer-text,
+body.zone-cityhall .story__note {
+    /* Slightly stronger shadow to help the cream cards pop against the blue */
+    box-shadow: 0 8px 24px rgba(15, 45, 75, 0.25);
+}
