@@ -1,5 +1,5 @@
 <!--
-    ZONE: <ZoneName>
+    ZONE: Zoo
     KEY <XXXX> - Landing page for the <ZoneName> zone.
 
     Original Perl scripts live in scripts/<zonename>/
@@ -9,11 +9,56 @@
     completed zone landing page with card links to sub-pages.
 -->
 
-<section class="zone-content">
+<section class="zone-content zoo">
     <a href="#" class="zone-back">← Back to KidsTown</a>
 
-    <h1>Welcome to <ZoneName></h1>
+    <h1>KidsTown Zoo</h1>
+
     <p class="zone-content__lead">
-        This zone is under construction. Content coming soon!
+        Explore animals from different regions of the world.
     </p>
+
+    <div class="zoo__nav">
+        <button id="map-button" class="btn">World Map</button>
+        <button id="ocean-button" class="btn">Ocean</button>
+        <button id="africa-button" class="btn">Africa</button>
+        <button id="australia-button" class="btn">Australia</button>
+        <button id="polar-button" class="btn">Polar Regions</button>
+    </div>
+
+    <div class="zoo__content-card">
+
+        <div id="zoo-display"></div>
+
+        <img
+            id="world-map-image"
+            src="graphics/zoo/world3a.gif"
+            alt="World map showing the Zoo regions"
+            hidden>
+
+        <div class="zoo__controls">
+
+            <button
+                id="challenge-button"
+                class="btn"
+                hidden>
+                Try taking the Zoo Keeper's Challenge!
+            </button>
+
+            <button
+                id="zoo-home-button"
+                class="btn"
+                hidden>
+                Go back to the Zoo
+            </button>
+
+        </div>
+
+        <div id="challenge-options"
+             class="zoo__challenge-options">
+        </div>
+
+    </div>
+
+    <script src="scripts/zoo/zoo.js"></script>
 </section>
