@@ -1,19 +1,61 @@
 <!--
-    ZONE: <ZoneName>
-    KEY <XXXX> - Landing page for the <ZoneName> zone.
+    ZONE: Library (KEY 6000)
+    Landing page - pick a US region, or jump straight to Alaska/Hawaii.
 
-    Original Perl scripts live in scripts/<zonename>/
-    Original graphics live in graphics/<zonename>/
-
-    Look at zones/cityhall/index.html for a full example of a
-    completed zone landing page with card links to sub-pages.
+    Original Perl scripts live in scripts/library/
+    Original graphics live in graphics/library/
+    Data for every state lives in data/library/b_state_datafile.txt
 -->
 
-<section class="zone-content">
-    <a href="#" class="zone-back">← Back to KidsTown</a>
+<section class="zone-content library">
+    <a href="#" class="zone-back">&larr; Back to KidsTown</a>
 
-    <h1>Welcome to <ZoneName></h1>
+    <h1>KidsTown Library</h1>
     <p class="zone-content__lead">
-        This zone is under construction. Content coming soon!
+        Pick a region on the map to explore its states, or jump straight to Alaska or Hawaii!
     </p>
+
+    <img
+        src="graphics/library/NewUSA.GIF"
+        alt="Map of the United States"
+        class="library__map">
+
+    <div class="library__region-grid">
+        <a href="#library/northwest" class="library__region-card">
+            <span class="library__region-card-name">Northwest</span>
+            <span class="library__region-card-count">5 states</span>
+        </a>
+        <a href="#library/mid-atlantic" class="library__region-card">
+            <span class="library__region-card-name">Middle Atlantic</span>
+            <span class="library__region-card-count">6 states</span>
+        </a>
+        <a href="#library/new-england" class="library__region-card">
+            <span class="library__region-card-name">New England</span>
+            <span class="library__region-card-count">6 states</span>
+        </a>
+        <a href="#library/north-central" class="library__region-card">
+            <span class="library__region-card-name">North Central</span>
+            <span class="library__region-card-count">12 states</span>
+        </a>
+        <a href="#library/south-central" class="library__region-card">
+            <span class="library__region-card-name">South Central</span>
+            <span class="library__region-card-count">4 states</span>
+        </a>
+        <a href="#library/southeast" class="library__region-card">
+            <span class="library__region-card-name">Southeast</span>
+            <span class="library__region-card-count">10 states</span>
+        </a>
+        <a href="#library/southwest" class="library__region-card">
+            <span class="library__region-card-name">Southwest</span>
+            <span class="library__region-card-count">6 states</span>
+        </a>
+        <a href="#library/state-ak" class="library__region-card library__region-card--solo">
+            <span class="library__region-card-name">Alaska</span>
+            <span class="library__region-card-count">visit directly</span>
+        </a>
+        <a href="#library/state-hi" class="library__region-card library__region-card--solo">
+            <span class="library__region-card-name">Hawaii</span>
+            <span class="library__region-card-count">visit directly</span>
+        </a>
+    </div>
 </section>

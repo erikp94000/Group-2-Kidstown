@@ -1568,4 +1568,163 @@ body.zone-township {
     .township__quiz-card {
         padding: 1.25rem;
     }
+}/* =========================================================
+   LIBRARY
+   ========================================================= */
+
+.library__map {
+    display: block;
+    max-width: 480px;
+    width: 100%;
+    margin: var(--space-5) auto var(--space-6);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.library__region-grid,
+.library__state-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: var(--space-3);
+}
+
+.library__region-card,
+.library__state-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border: 2px solid var(--color-zone-library);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    color: var(--color-ink);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.library__region-card {
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.library__region-card-name {
+    font-size: 1.05rem;
+}
+
+.library__region-card-count {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: var(--size-small);
+    color: var(--color-ink-soft);
+}
+
+.library__region-card--solo {
+    border-style: dashed;
+}
+
+.library__region-card:hover,
+.library__region-card:focus-visible,
+.library__state-card:hover,
+.library__state-card:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    background: var(--color-surface-alt);
+}
+
+.library__region-map {
+    display: block;
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto var(--space-6);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ---- individual state page ---- */
+
+.library-state__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    margin-bottom: var(--space-5);
+    flex-wrap: wrap;
+}
+
+.library-state__header h1 {
+    margin-bottom: var(--space-1);
+    text-align: left;
+}
+
+.library-state__flag {
+    width: 96px;
+    height: auto;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    flex-shrink: 0;
+}
+
+.library-state__nickname {
+    margin: 0;
+    font-style: italic;
+    color: var(--color-ink-soft);
+}
+
+.library-state__map {
+    display: block;
+    max-width: 320px;
+    width: 100%;
+    margin: 0 auto var(--space-6);
+}
+
+.library-state__facts {
+    list-style: none;
+    margin: 0 0 var(--space-5);
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.library-state__fact {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.library-state__fact-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+}
+
+.library-state__activity-note {
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: var(--space-3) var(--space-5);
+    background: var(--color-surface-alt);
+    border-radius: var(--radius);
+    color: var(--color-ink-soft);
+    font-style: italic;
+}
+
+@media (max-width: 600px) {
+    .library-state__header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .library-state__header h1 {
+        text-align: center;
+    }
 }
