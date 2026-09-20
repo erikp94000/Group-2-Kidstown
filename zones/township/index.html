@@ -1,5 +1,5 @@
 <!--
-    ZONE: <ZoneName>
+    ZONE: TownShip
     KEY <XXXX> - Landing page for the <ZoneName> zone.
 
     Original Perl scripts live in scripts/<zonename>/
@@ -9,11 +9,204 @@
     completed zone landing page with card links to sub-pages.
 -->
 
-<section class="zone-content">
+<section class="zone-content township">
     <a href="#" class="zone-back">← Back to KidsTown</a>
 
-    <h1>Welcome to <ZoneName></h1>
-    <p class="zone-content__lead">
-        This zone is under construction. Content coming soon!
+    <h1>KidsTown Township</h1>
+
+    <p class="township__subtitle">
+        Sail around the world and explore famous landmarks!
     </p>
+
+    <div id="township-display" class="township__activity">
+
+        <h2>Sail to One of These Wonders of the World</h2>
+
+        <div class="township__wonder-nav">
+            <button id="zeus-button" class="btn">Statue of Zeus</button>
+            <button id="pyramids-button" class="btn">Pyramids of Giza</button>
+            <button id="wall-button" class="btn">Great Wall of China</button>
+            <button id="taj-button" class="btn">Taj Mahal</button>
+        </div>
+
+        <h2>Identify Countries By Their Outlines</h2>
+
+        <button id="country-game-button" class="btn">
+            Country Shape Game
+        </button>
+
+    </div>
+
+    <section id="zeus-view" hidden>
+        <h2>Statue of Zeus at Olympia</h2>
+
+        <div id="zeus-images" class="township__zeus-top-images">
+            <figure>
+                <img src="graphics/township/mapgr.jpg" alt="Map of Greece">
+                <figcaption>Map of Greece</figcaption>
+            </figure>
+
+            <figure>
+                <img src="graphics/township/flaggr.gif" alt="Flag of Greece">
+                <figcaption>Flag of Greece</figcaption>
+            </figure>
+        </div>
+
+        <div id="zeus-description" class="township__zeus-description">
+
+            <figure>
+                <img src="graphics/township/greece4.gif" alt="Parthenon">
+                <figcaption>Parthenon</figcaption>
+            </figure>
+
+            <p>
+                The statue of Zeus was built in the honor of the god who the Ancient
+                Olympic games were held for. It was located in the ancient town that gave its
+                name to the Olympics, the ancient town of Olympia in Greece. The
+                ancient Greek calender starts in 776 BCE. The Olympic games are
+                believed to have started that year. The temple of Zeus in Olympia was
+                designed by the architect Libon and was built around 420 BCE. The
+                statue was placed inside the temple about 15 to 20 years later when its
+                creator, Pheidias, finished sculpting it. The statue represents the god of ancient world,
+                Zeus, sitting and holding a staff made from ivory and gold.
+                The whole statue was made from gold, and it was as tall as a
+                modern four-story building. During the Olympic games, even wars stopped
+                allowing athletes from Syria, Egypt, and Sicily to celebrate the
+                Olympics and to worship their king of gods: Zeus.
+            </p>
+
+            <figure>
+                <img src="graphics/township/greece7.gif" alt="Statue of Aphrodite">
+                <figcaption>Statue of Aphrodite</figcaption>
+            </figure>
+
+        </div>
+
+        <h3>Game of Questions</h3>
+
+        <div id="zeus-game">
+            <div class="township__quiz-row">
+                <div class="township__quiz-question">
+                    <label for="zeus-year">
+                        The statue of Zeus was built around the year
+                    </label>
+
+                    <select id="zeus-year">
+                        <option value="">Select One</option>
+                        <option value="500 CE">500 CE</option>
+                        <option value="300 BCE">300 BCE</option>
+                        <option value="420 BCE">420 BCE</option>
+                    </select>
+                </div>
+
+                <div class="township__quiz-question">
+                    <p>Does the statue still exist?</p>
+
+                    <label>
+                        Yes
+                        <input type="radio" name="zeus-exists" value="yes">
+                    </label>
+
+                    <label>
+                        No
+                        <input type="radio" name="zeus-exists" value="no">
+                    </label>
+                </div>
+            </div>
+
+            <div class="township__quiz-word">
+                <p>In which town was the statue located? (Construct the word)</p>
+
+                <div class="township__letter-selects">
+                    <select id="zeus-letter-1">
+                        <option value=""></option>
+                        <option>M</option>
+                        <option>N</option>
+                        <option>O</option>
+                        <option>P</option>
+                        <option>Q</option>
+                        <option>R</option>
+                        <option>S</option>
+                    </select>
+
+                    <select id="zeus-letter-2">
+                        <option value=""></option>
+                        <option>K</option>
+                        <option>L</option>
+                        <option>M</option>
+                        <option>N</option>
+                        <option>O</option>
+                        <option>P</option>
+                        <option>Q</option>
+                    </select>
+
+                    <select id="zeus-letter-3">
+                        <option value=""></option>
+                        <option>U</option>
+                        <option>V</option>
+                        <option>W</option>
+                        <option>X</option>
+                        <option>Y</option>
+                        <option>Z</option>
+                    </select>
+
+                    <select id="zeus-letter-4">
+                        <option value=""></option>
+                        <option>K</option>
+                        <option>L</option>
+                        <option>M</option>
+                        <option>N</option>
+                        <option>O</option>
+                        <option>P</option>
+                    </select>
+
+                    <select id="zeus-letter-5">
+                        <option value=""></option>
+                        <option>K</option>
+                        <option>L</option>
+                        <option>M</option>
+                        <option>N</option>
+                        <option>O</option>
+                        <option>P</option>
+                        <option>Q</option>
+                    </select>
+
+                    <select id="zeus-letter-6">
+                        <option value=""></option>
+                        <option>F</option>
+                        <option>G</option>
+                        <option>H</option>
+                        <option>I</option>
+                        <option>J</option>
+                        <option>K</option>
+                        <option>L</option>
+                    </select>
+
+                    <select id="zeus-letter-7">
+                        <option value=""></option>
+                        <option>A</option>
+                        <option>B</option>
+                        <option>C</option>
+                        <option>D</option>
+                        <option>E</option>
+                        <option>F</option>
+                        <option>G</option>
+                    </select>
+                </div>
+            </div>
+
+            <button id="zeus-submit-button" class="btn">
+                Click Here to Solve the Puzzle
+            </button>
+
+            <div id="zeus-result"></div>
+        </div>
+
+        <button id="zeus-back-button" class="btn">
+            Back to Township
+        </button>
+    </section>
+
+    <script src="scripts/township/township.js"></script>
+
 </section>

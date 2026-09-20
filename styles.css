@@ -1219,3 +1219,68 @@ body.zone-cityhall .story__note {
     border: 4px solid #d88420;
     border-radius: 12px;
 }
+
+/* Zeus page */
+
+.township__zeus-top-images {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 1.5rem 0;
+}
+
+.township__zeus-top-images figure {
+    margin: 0;
+    text-align: center;
+}
+
+.township__zeus-top-images img {
+    width: 180px;
+    max-width: 100%;
+    height: auto;
+    border: 3px solid #d67d13;
+    border-radius: 10px;
+}
+
+
+.township__zeus-description {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    gap: 1.5rem;
+    align-items: start;
+    margin-top: 1.5rem;
+}
+
+.township__zeus-description figure {
+    margin: 0;
+    text-align: center;
+}
+
+.township__zeus-description img {
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+    border: 3px solid #d67d13;
+    border-radius: 10px;
+}
+
+.township__zeus-description p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+@media (max-width: 750px) {
+    .township__zeus-top-images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .township__zeus-description {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .township__zeus-description figure {
+        justify-self: center;
+    }
+}
