@@ -1,19 +1,26 @@
 <!--
-    ZONE: <ZoneName>
-    KEY <XXXX> - Landing page for the <ZoneName> zone.
+    ZONE: School (KEY 4000)
+    Landing page for the school zone.
 
-    Original Perl scripts live in scripts/<zonename>/
-    Original graphics live in graphics/<zonename>/
-
-    Look at zones/cityhall/index.html for a full example of a
-    completed zone landing page with card links to sub-pages.
+    Original Perl: scripts/school/mainPage.pl
 -->
 
-<section class="zone-content">
+<section class="zone-content school">
     <a href="#" class="zone-back">← Back to KidsTown</a>
 
-    <h1>Welcome to <ZoneName></h1>
-    <p class="zone-content__lead">
-        This zone is under construction. Content coming soon!
-    </p>
+    <div class="school__hero">
+        <img
+            src="graphics/school/chalkboard.gif"
+            alt="KidsTown School"
+            class="school__hero-img">
+        <h1>Welcome to School!</h1>
+    </div>
+
+    <p class="zone-content__lead">Current activities are:</p>
+
+    <div class="school__link-grid">
+        <a href="#school/word-fun" class="school__link-card">Word Fun</a>
+        <a href="#school/scramble" class="school__link-card">Scramble</a>
+        <a href="#school/farm-trip" class="school__link-card">Farm Field-Trip</a>
+    </div>
 </section>

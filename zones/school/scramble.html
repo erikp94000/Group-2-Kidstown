@@ -1,0 +1,39 @@
+<!--
+    ZONE: School - Scramble (KEY 4002)
+
+    Original Perl: scripts/school/e_scramble.pl (+ open.pl instructions folded in below)
+    Original data:  data/school/e_data1.txt / e_data2.txt / e_data3.txt (shared with Word Fun)
+-->
+
+<section class="zone-content school-word">
+    <a href="#school" class="zone-back">← Back to the School</a>
+
+    <h1>Word Scramble Game</h1>
+
+    <p class="zone-content__lead">
+        This is a word and picture matching activity. Choose a level of difficulty and try
+        to guess the correct word by unscrambling the letters shown. Use the picture as a clue!
+    </p>
+
+    <div id="scramble-level-picker" class="school-word__level-picker">
+        <div class="school-word__level-options">
+            <label class="school-word__level-option">
+                <input type="radio" name="level" value="short" checked>
+                <span><strong>short words</strong></span>
+            </label>
+            <label class="school-word__level-option">
+                <input type="radio" name="level" value="longer">
+                <span><strong>longer words</strong></span>
+            </label>
+            <label class="school-word__level-option">
+                <input type="radio" name="level" value="longest">
+                <span><strong>longest words</strong></span>
+            </label>
+        </div>
+        <button id="scramble-start-button" type="button" class="btn">Start Game</button>
+    </div>
+
+    <div id="scramble-game" class="school-word__game" hidden></div>
+
+    <script src="scripts/school/scramble.js"></script>
+</section>

@@ -1,0 +1,39 @@
+<!--
+    ZONE: School - Word Fun (KEY 4001)
+
+    Original Perl: scripts/school/wordfun.pl (+ wordfunhelp.pl folded in below)
+    Original data:  data/school/e_data1.txt / e_data2.txt / e_data3.txt
+-->
+
+<section class="zone-content school-word">
+    <a href="#school" class="zone-back">← Back to the School</a>
+
+    <h1>Word Fun</h1>
+
+    <p class="zone-content__lead">
+        Guess the word one letter at a time! Click a letter — if it's in the word, it
+        appears in the blanks. If not, you'll know to try a different one.
+    </p>
+
+    <div id="wordfun-level-picker" class="school-word__level-picker">
+        <div class="school-word__level-options">
+            <label class="school-word__level-option">
+                <input type="radio" name="level" value="easy" checked>
+                <span><strong>Easy</strong> — fish, ball, and bed</span>
+            </label>
+            <label class="school-word__level-option">
+                <input type="radio" name="level" value="medium">
+                <span><strong>Medium</strong> — basketball, flying, and staple</span>
+            </label>
+            <label class="school-word__level-option">
+                <input type="radio" name="level" value="difficult">
+                <span><strong>Difficult</strong> — stethoscope and application</span>
+            </label>
+        </div>
+        <button id="wordfun-start-button" type="button" class="btn">Start Game</button>
+    </div>
+
+    <div id="wordfun-game" class="school-word__game" hidden></div>
+
+    <script src="scripts/school/word-fun.js"></script>
+</section>
