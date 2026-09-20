@@ -1,0 +1,33 @@
+<!--
+    ZONE: Museum - Planetarium (KEY 8500/8550)
+
+    Original Perl: scripts/museum/planet.pl, planetnav.pl, wizard.pl, wizhelp.pl
+    Original data:  data/museum/ss1.dat (Basic Tour), data/museum/ss2.dat (Advanced Tour)
+-->
+
+<section class="zone-content museum-planetarium">
+    <a href="#museum" class="zone-back">← Back to the Museum</a>
+
+    <h1>The Planetarium</h1>
+
+    <p class="zone-content__lead">
+        Thank you for deciding to visit the Planetarium. Pick a tour of our Solar System below —
+        click the picture you think answers each question!
+    </p>
+
+    <div class="museum-planetarium__card">
+        <img
+            src="graphics/museum/overpg.gif"
+            alt="Our Solar System"
+            class="museum-planetarium__hero-img">
+
+        <div id="planetarium-tour-buttons" class="museum-planetarium__tour-nav">
+            <button id="basic-tour-button" class="btn">Basic Tour</button>
+            <button id="advanced-tour-button" class="btn">Advanced Tour</button>
+        </div>
+
+        <div id="planetarium-quiz" class="museum-planetarium__quiz" hidden></div>
+    </div>
+
+    <script src="scripts/museum/museum.js"></script>
+</section>

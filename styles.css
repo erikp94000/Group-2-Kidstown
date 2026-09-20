@@ -1728,3 +1728,195 @@ body.zone-township {
         text-align: center;
     }
 }
+/* =========================================================
+   MUSEUM
+   ========================================================= */
+
+.museum__hero {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: var(--space-6);
+}
+
+.museum__hero-img {
+    max-width: 220px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.museum__hero-text h1 {
+    margin-bottom: var(--space-2);
+}
+
+.museum__link-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-4);
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.museum__link-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-5);
+    background: var(--color-surface);
+    border: 2px solid var(--color-zone-zoo);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    color: var(--color-ink);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.museum__link-card:hover,
+.museum__link-card:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    background: var(--color-surface-alt);
+}
+
+.museum__link-label {
+    font-size: var(--size-small);
+    color: var(--color-ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.museum__link-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.15rem;
+}
+
+.museum__exhibit-img {
+    display: block;
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto var(--space-5);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ---- rainbow story pages reuse .story__* from the CityHall section ---- */
+
+.museum-story__final-image {
+    max-width: 340px;
+    margin: 0 auto var(--space-5);
+}
+
+.story__conclusion {
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto var(--space-5);
+}
+
+/* ---- planetarium (dark theme card) ---- */
+
+.museum-planetarium__card {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-5);
+    background: #0b0b1e;
+    background-image: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08) 0, transparent 40%),
+                       radial-gradient(circle at 80% 60%, rgba(255,255,255,0.06) 0, transparent 45%);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    color: #f4f4ff;
+    text-align: center;
+}
+
+.museum-planetarium__hero-img {
+    max-width: 260px;
+    margin: 0 auto var(--space-5);
+}
+
+.museum-planetarium__tour-nav {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}
+
+.museum-planetarium__question {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: var(--space-5);
+}
+
+.museum-planetarium__options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    max-width: 420px;
+    margin: 0 auto var(--space-5);
+}
+
+.museum-planetarium__option-button {
+    padding: 0;
+    border: 3px solid transparent;
+    border-radius: var(--radius);
+    background: none;
+    cursor: pointer;
+    transition: border-color 0.18s ease, transform 0.18s ease;
+}
+
+.museum-planetarium__option-button:hover,
+.museum-planetarium__option-button:focus-visible {
+    border-color: #f4d35e;
+    transform: translateY(-2px);
+}
+
+.museum-planetarium__option {
+    display: block;
+    width: 100%;
+    border-radius: calc(var(--radius) - 3px);
+}
+
+.museum-planetarium__option--disabled {
+    opacity: 0.35;
+    border: 3px solid transparent;
+    border-radius: var(--radius);
+}
+
+.museum-planetarium__result-image {
+    max-width: 200px;
+    margin: 0 auto var(--space-4);
+    border-radius: var(--radius);
+}
+
+.museum-planetarium__feedback {
+    max-width: 480px;
+    margin: 0 auto var(--space-5);
+    font-size: 1.05rem;
+}
+
+.museum-planetarium__feedback--correct {
+    color: #8ef58e;
+}
+
+.museum-planetarium__feedback--incorrect {
+    color: #ffb0b0;
+}
+
+.museum-planetarium__skip {
+    margin-top: var(--space-3);
+    background: transparent;
+    color: #f4f4ff;
+    border-color: #f4f4ff;
+}
+
+@media (max-width: 480px) {
+    .museum-planetarium__options {
+        grid-template-columns: 1fr 1fr;
+        max-width: 280px;
+    }
+}

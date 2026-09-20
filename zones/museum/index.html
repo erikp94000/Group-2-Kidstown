@@ -1,19 +1,33 @@
 <!--
-    ZONE: <ZoneName>
-    KEY <XXXX> - Landing page for the <ZoneName> zone.
+    ZONE: Museum (KEY 8000)
+    Landing page for the museum zone.
 
-    Original Perl scripts live in scripts/<zonename>/
-    Original graphics live in graphics/<zonename>/
-
-    Look at zones/cityhall/index.html for a full example of a
-    completed zone landing page with card links to sub-pages.
+    Original Perl scripts live in scripts/museum/
+    Original graphics live in graphics/museum/
 -->
 
-<section class="zone-content">
+<section class="zone-content museum">
     <a href="#" class="zone-back">← Back to KidsTown</a>
 
-    <h1>Welcome to <ZoneName></h1>
-    <p class="zone-content__lead">
-        This zone is under construction. Content coming soon!
-    </p>
+    <div class="museum__hero">
+        <img
+            src="graphics/museum/museum.gif"
+            alt="KidsTown Museum"
+            class="museum__hero-img">
+        <div class="museum__hero-text">
+            <h1>Welcome to the Museum</h1>
+            <p class="zone-content__lead">Open to the Public</p>
+        </div>
+    </div>
+
+    <div class="museum__link-grid">
+        <a href="#museum/colors" class="museum__link-card">
+            <span class="museum__link-label">Current Exhibit</span>
+            <span class="museum__link-title">The Color Exhibition</span>
+        </a>
+        <a href="#museum/planetarium" class="museum__link-card">
+            <span class="museum__link-label">Planetarium Show</span>
+            <span class="museum__link-title">Our Solar System</span>
+        </a>
+    </div>
 </section>
