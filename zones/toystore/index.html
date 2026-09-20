@@ -1,5 +1,5 @@
 <!--
-    ZONE: <ZoneName>
+    ZONE: Toystore
     KEY <XXXX> - Landing page for the <ZoneName> zone.
 
     Original Perl scripts live in scripts/<zonename>/
@@ -9,11 +9,64 @@
     completed zone landing page with card links to sub-pages.
 -->
 
-<section class="zone-content">
+<section class="zone-content toystore">
     <a href="#" class="zone-back">← Back to KidsTown</a>
 
-    <h1>Welcome to <ZoneName></h1>
+    <h1>KidsTown Toy Store</h1>
+
     <p class="zone-content__lead">
-        This zone is under construction. Content coming soon!
+        Riddles, Shape Poems, and a Bonus Problem
     </p>
+
+    <div class="toystore__nav">
+        <button id="riddle-start-button" class="btn">Riddles</button>
+        <button id="shape-button" class="btn">Shape Poems</button>
+        <button id="problem-button" class="btn">Bonus Problem</button>
+    </div>
+
+    <div id="riddle-number-nav"
+        class="toystore__number-nav"
+        hidden>
+    </div>
+
+    <div id="shape-number-nav"
+        class="toystore__number-nav"
+        hidden>
+    </div>
+
+    <div class="toystore__activity">
+        <img
+            id="toystore-image"
+            src=""
+            alt=""
+            hidden>
+
+        <div id="riddle-display"></div>
+
+        <div id="answer-display"></div>
+
+        <div class="toystore__controls">
+            <button id="answer-button" class="btn">
+                Show Answer
+            </button>
+
+            <button id="next-button" class="btn" hidden>
+                Next Riddle
+            </button>
+
+            <button id="next-shape-button" class="btn" hidden>
+                Next Shape Poem
+            </button>
+
+            <button id="tools-button" class="btn" hidden>
+                Show Available Tools
+            </button>
+
+            <button id="solution-button" class="btn" hidden>
+                Show One Answer
+            </button>
+        </div>
+    </div>
+
+    <script src="scripts/toystore/toystore.js"></script>
 </section>
