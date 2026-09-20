@@ -201,6 +201,13 @@
         </div>
 
         <div id="zeus-result" class="township__quiz-result" hidden></div>
+        <img
+            id="zeus-result-image"
+            class="township__result-image"
+            src=""
+            alt="Statue of Zeus puzzle result"
+            hidden
+        >
 
         <button id="zeus-try-again-button" class="btn" hidden>
             Try Again
@@ -375,6 +382,13 @@
         </div>
 
         <div id="pyramids-result" class="township__quiz-result" hidden></div>
+
+        <img
+            id="pyramids-result-image"
+            class="township__result-image"
+            alt="Great Pyramid of Giza quiz result"
+            hidden
+        >
 
         <button id="pyramids-try-again-button" class="btn" hidden>
             Try Again
@@ -553,6 +567,13 @@
             hidden>
         </div>
 
+        <img
+            id="wall-result-image"
+            class="township__result-image"
+            alt="Great Wall of China quiz result"
+            hidden
+        >
+
         <button
             id="wall-try-again-button"
             class="btn"
@@ -570,8 +591,241 @@
 
     </section>
 
+    <section id="taj-view" hidden>
+        <h2>Taj Mahal</h2>
+
+        <div class="township__wonder-top-images">
+            <figure>
+                <img src="graphics/township/india1.gif" alt="Map of India">
+                <figcaption>Map of India</figcaption>
+            </figure>
+
+            <figure>
+                <img src="graphics/township/indflag.jpg" alt="Flag of India">
+                <figcaption>Flag of India</figcaption>
+            </figure>
+        </div>
+
+        <div class="township__wonder-description">
+
+            <figure>
+                <img src="graphics/township/india3.gif" alt="River Ganges">
+                <figcaption>River Ganges</figcaption>
+            </figure>
+
+            <p>
+                The Taj Mahal is considered to be one of the wonders of the world.
+                The Taj Mahal was built by the Mughal Emperor "Shah Jahan" in memory
+                of his beloved "Mumtaz Mahal". It took 20,000 craftsmen working around
+                the clock for 22 years to complete it. It is truely one man's
+                monumental testimony of love. The Taj Mahal has become a landmark
+                not only for the city of Agra, but for the entire country of India.
+            </p>
+
+            <figure>
+                <img src="graphics/township/india4.gif" alt="Hindu Temple">
+                <figcaption>Hindu Temple</figcaption>
+            </figure>
+
+        </div>
+
+        <h3>Game of Questions</h3>
+
+        <div id="taj-game">
+
+            <div class="township__quiz-row">
+
+                <div class="township__quiz-question">
+                    <label for="taj-location">
+                        The Taj Mahal is located in:
+                    </label>
+
+                    <select id="taj-location">
+                        <option value="">Select One</option>
+                        <option value="China">China</option>
+                        <option value="India">India</option>
+                        <option value="Tibet">Tibet</option>
+                    </select>
+                </div>
+
+                <div class="township__quiz-question">
+                    <p>The Taj Mahal was built by 20,000 craftmen.</p>
+
+                    <label>
+                        TRUE
+                        <input type="radio" name="taj-craftsmen" value="true">
+                    </label>
+
+                    <label>
+                        FALSE
+                        <input type="radio" name="taj-craftsmen" value="false">
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="township__quiz-word">
+                <p>
+                    The Taj Mahal was was a work of ____!
+                    (Construct the word)
+                </p>
+
+                <div class="township__letter-selects">
+
+                    <select id="taj-letter-1">
+                        <option value=""></option>
+                        <option>F</option>
+                        <option>G</option>
+                        <option>H</option>
+                        <option>I</option>
+                        <option>J</option>
+                        <option>K</option>
+                        <option>L</option>
+                    </select>
+
+                    <select id="taj-letter-2">
+                        <option value=""></option>
+                        <option>M</option>
+                        <option>N</option>
+                        <option>O</option>
+                        <option>P</option>
+                        <option>Q</option>
+                        <option>R</option>
+                    </select>
+
+                    <select id="taj-letter-3">
+                        <option value=""></option>
+                        <option>R</option>
+                        <option>S</option>
+                        <option>T</option>
+                        <option>U</option>
+                        <option>V</option>
+                        <option>W</option>
+                    </select>
+
+                    <select id="taj-letter-4">
+                        <option value=""></option>
+                        <option>A</option>
+                        <option>B</option>
+                        <option>C</option>
+                        <option>D</option>
+                        <option>E</option>
+                        <option>F</option>
+                    </select>
+
+                </div>
+            </div>
+
+            <button id="taj-submit-button" class="btn">
+                Click Here to Solve the Puzzle
+            </button>
+
+        </div>
+
+        <div id="taj-result"
+            class="township__quiz-result"
+            hidden>
+        </div>
+
+        <img
+            id="taj-result-image"
+            class="township__result-image"
+            src=""
+            alt="Taj Mahal puzzle result"
+            hidden
+        >
+
+        <button id="taj-try-again-button"
+                class="btn"
+                hidden>
+            Try Again
+        </button>
+
+        <button id="taj-back-button" class="btn">
+            Back to Township
+        </button>
+
+    </section>
+
+    <section id="country-game-view" hidden>
+        <h2>Country Shape Matching Game</h2>
+
+        <p>
+            Welcome! The object of this game is to identify a country
+            just from its shape. If you're stumped, use the three clues
+            to help narrow down your choices.
+        </p>
+
+        <div id="country-game-panel">
+
+            <h3>What Country Is This?</h3>
+
+            <div class="township__country-game">
+
+                <div id="country-clues" class="township__country-clues">
+                </div>
+
+                <figure class="township__country-shape">
+                    <img
+                        id="country-shape-image"
+                        src=""
+                        alt="Country outline"
+                    >
+                </figure>
+
+                <div id="country-answers" class="township__country-answers">
+                </div>
+
+            </div>
+
+            <button id="country-skip-button" class="btn">
+                Skip to the next set
+            </button>
+
+        </div>
+
+
+        <div id="country-result-panel" hidden>
+
+            <h3 id="country-result-title"></h3>
+
+            <img
+                id="country-result-image"
+                class="township__country-result-image"
+                src=""
+                alt=""
+            >
+
+            <p id="country-result-text"></p>
+
+            <button
+                id="country-back-set-button"
+                class="btn"
+                hidden
+            >
+                Go Back to This Set
+            </button>
+
+            <button
+                id="country-next-button"
+                class="btn"
+                hidden
+            >
+                Next Set
+            </button>
+
+        </div>
+
+
+        <button id="country-back-button" class="btn">
+            Back to Township
+        </button>
+    </section>
+
     <script src="scripts/township/township.js"></script>
     <script src="scripts/township/township.js"></script>
     <script src="scripts/township/wall.js"></script>
+    <script src="scripts/township/taj.js"></script>
+    <script src="scripts/township/countrygame.js"></script>
 
 </section>

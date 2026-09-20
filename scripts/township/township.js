@@ -9,8 +9,8 @@ const zeusBackButton = document.getElementById("zeus-back-button");
 
 const zeusSubmitButton = document.getElementById("zeus-submit-button");
 const zeusResult = document.getElementById("zeus-result");
-
 const zeusTryAgainButton = document.getElementById("zeus-try-again-button");
+const zeusResultImage = document.getElementById("zeus-result-image");
 
 const pyramidsButton = document.getElementById("pyramids-button");
 const pyramidsView = document.getElementById("pyramids-view");
@@ -21,6 +21,7 @@ const pyramidsSubmitButton = document.getElementById("pyramids-submit-button");
 const pyramidsResult = document.getElementById("pyramids-result");
 
 const pyramidsTryAgainButton = document.getElementById("pyramids-try-again-button");
+const pyramidsResultImage = document.getElementById("pyramids-result-image");
 
 function showZeus() {
     townshipDisplay.hidden = true;
@@ -74,15 +75,42 @@ function checkZeusAnswers() {
     }
 
     zeusResult.hidden = false;
+    zeusResultImage.hidden = false;
 
     if (missed === 0) {
-        zeusResult.textContent = "You got all of the questions correct!";
+        zeusResult.textContent =
+            "You got all of the questions correct!";
+
+        zeusResultImage.src =
+            "graphics/township/zeus.jpg";
+
         zeusTryAgainButton.hidden = true;
-    } else if (missed === 1) {
-        zeusResult.textContent = "You missed 1 question.";
+    }
+    else if (missed === 1) {
+        zeusResult.textContent =
+            "You missed 1 question.";
+
+        zeusResultImage.src =
+            "graphics/township/zeus1.jpg";
+
         zeusTryAgainButton.hidden = false;
-    } else {
-        zeusResult.textContent = `You missed ${missed} questions.`;
+    }
+    else if (missed === 2) {
+        zeusResult.textContent =
+            "You missed 2 questions.";
+
+        zeusResultImage.src =
+            "graphics/township/zeus2.jpg";
+
+        zeusTryAgainButton.hidden = false;
+    }
+    else {
+        zeusResult.textContent =
+            "You missed 3 questions.";
+
+        zeusResultImage.src =
+            "graphics/township/zeus3.jpg";
+
         zeusTryAgainButton.hidden = false;
     }
 
@@ -104,6 +132,10 @@ function resetZeusQuiz() {
 
     zeusResult.textContent = "";
     zeusResult.hidden = true;
+
+    zeusResultImage.src = "";
+    zeusResultImage.hidden = true;
+
     zeusTryAgainButton.hidden = true;
 }
 
@@ -139,20 +171,41 @@ function checkPyramidsAnswers() {
     }
 
     pyramidsResult.hidden = false;
+    pyramidsResultImage.hidden = false;
 
     if (missed === 0) {
         pyramidsResult.textContent =
             "You got all of the questions correct!";
 
+        pyramidsResultImage.src =
+            "graphics/township/pyramid1.jpg";
+
         pyramidsTryAgainButton.hidden = true;
-    } else if (missed === 1) {
+    }
+    else if (missed === 1) {
         pyramidsResult.textContent =
             "You missed 1 question.";
 
+        pyramidsResultImage.src =
+            "graphics/township/pyramid2.jpg";
+
         pyramidsTryAgainButton.hidden = false;
-    } else {
+    }
+    else if (missed === 2) {
         pyramidsResult.textContent =
-            `You missed ${missed} questions.`;
+            "You missed 2 questions.";
+
+        pyramidsResultImage.src =
+            "graphics/township/pyramid3.jpg";
+
+        pyramidsTryAgainButton.hidden = false;
+    }
+    else {
+        pyramidsResult.textContent =
+            "You missed 3 questions.";
+
+        pyramidsResultImage.src =
+            "graphics/township/pyramid4.jpg";
 
         pyramidsTryAgainButton.hidden = false;
     }
@@ -174,6 +227,8 @@ function resetPyramidsQuiz() {
 
     pyramidsResult.textContent = "";
     pyramidsResult.hidden = true;
+    pyramidsResultImage.src = "";
+    pyramidsResultImage.hidden = true;
     pyramidsTryAgainButton.hidden = true;
 }
 

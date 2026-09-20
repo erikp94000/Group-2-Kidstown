@@ -18,6 +18,9 @@
     const wallBackButton =
         document.getElementById("wall-back-button");
 
+    const wallResultImage =
+        document.getElementById("wall-result-image");
+
 
     function hideOtherWonderViews() {
         const zeusView = document.getElementById("zeus-view");
@@ -115,25 +118,41 @@
 
 
         wallResult.hidden = false;
-
+        wallResultImage.hidden = false;
 
         if (missed === 0) {
             wallResult.textContent =
                 "You got all of the questions correct!";
 
+            wallResultImage.src =
+                "graphics/township/answer3.jpg";
+
             wallTryAgainButton.hidden = true;
         }
-
         else if (missed === 1) {
             wallResult.textContent =
                 "You missed 1 question.";
 
+            wallResultImage.src =
+                "graphics/township/answer2.jpg";
+
             wallTryAgainButton.hidden = false;
         }
+        else if (missed === 2) {
+            wallResult.textContent =
+                "You missed 2 questions.";
 
+            wallResultImage.src =
+                "graphics/township/answer1.jpg";
+
+            wallTryAgainButton.hidden = false;
+        }
         else {
             wallResult.textContent =
-                `You missed ${missed} questions.`;
+                "You missed 3 questions.";
+
+            wallResultImage.src =
+                "graphics/township/answer0.jpg";
 
             wallTryAgainButton.hidden = false;
         }
@@ -162,6 +181,8 @@
 
         wallResult.textContent = "";
         wallResult.hidden = true;
+        wallResultImage.src = "";
+        wallResultImage.hidden = true;
 
         wallTryAgainButton.hidden = true;
     }
