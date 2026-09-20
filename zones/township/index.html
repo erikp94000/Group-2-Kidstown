@@ -198,11 +198,189 @@
             <button id="zeus-submit-button" class="btn">
                 Click Here to Solve the Puzzle
             </button>
-
-            <div id="zeus-result"></div>
         </div>
 
+        <div id="zeus-result" class="township__quiz-result" hidden></div>
+
+        <button id="zeus-try-again-button" class="btn" hidden>
+            Try Again
+        </button>
+
         <button id="zeus-back-button" class="btn">
+            Back to Township
+        </button>
+    </section>
+
+    <section id="pyramids-view" hidden>
+        <h2>Great Pyramids of Giza</h2>
+
+        <div class="township__zeus-top-images">
+            <figure>
+                <img src="graphics/township/mapeg.jpg" alt="Map of Egypt">
+                <figcaption>Map of Egypt</figcaption>
+            </figure>
+
+            <figure>
+                <img src="graphics/township/flageg.gif" alt="Flag of Egypt">
+                <figcaption>Flag of Egypt</figcaption>
+            </figure>
+        </div>
+
+        <div class="township__zeus-description">
+            <figure>
+                <img src="graphics/township/egypt6.gif" alt="Statue of a Pharoah">
+                <figcaption>Statue of a Pharoah</figcaption>
+            </figure>
+
+            <p>
+                We have just arrived in Egypt. In this wonderful country on the west
+                side of the river Nile, we find the oldest and one of the biggest
+                monuments of the world: The Great Pyramid of Giza. This Pyramid was
+                designed by the Egyptian Pharaoh (King) Khufu around the year 2560 BCE
+                to be his tomb when he died. The Great pyramid is believed to have been
+                built over a 20-year period. When it was finished, it was 145.75 meters
+                or 481 feet high. The structure consists of approximately two million
+                blocks of stone each weighing more then two tons. The inside of the
+                Great Pyramid has galleries, corridors and escape shafts that all lead
+                to the center of the pyramid where the sarcophagus(the Pharaoh's tomb)
+                is located. The Pharaoh was placed there when he died with a lot of
+                gold, precious stones and other valuable things, that he could take
+                with him on his mystic journey to the afterlife.
+            </p>
+
+            <figure>
+                <img src="graphics/township/desert.jpg" alt="River Nile">
+                <figcaption>River Nile</figcaption>
+            </figure>
+        </div>
+
+        <h3>Game of Questions</h3>
+
+        <div id="pyramids-game">
+
+            <div class="township__quiz-row">
+                <div class="township__quiz-question">
+                    <label for="pyramids-year">
+                        The Great Pyramid of Giza was built around the year
+                    </label>
+
+                    <select id="pyramids-year">
+                        <option value="">Select One</option>
+                        <option value="500 CE">500 CE</option>
+                        <option value="2560 BCE">2560 BCE</option>
+                        <option value="5080 BCE">5080 BCE</option>
+                    </select>
+                </div>
+
+                <div class="township__quiz-question">
+                    <p>Were there any corridors, galleries, or escape shafts in the pyramid?</p>
+
+                    <label>
+                        Yes
+                        <input type="radio" name="pyramids-corridors" value="yes">
+                    </label>
+
+                    <label>
+                        No
+                        <input type="radio" name="pyramids-corridors" value="no">
+                    </label>
+                </div>
+            </div>
+
+            <div class="township__quiz-word">
+                <p>
+                    An ancient building that Egyptians used as a tomb for their Pharaohs:
+                    (Construct the word)
+                </p>
+
+                <div class="township__letter-selects">
+
+                    <select id="pyramids-letter-1">
+                        <option value=""></option>
+                        <option>M</option>
+                        <option>N</option>
+                        <option>O</option>
+                        <option>P</option>
+                        <option>Q</option>
+                        <option>R</option>
+                    </select>
+
+                    <select id="pyramids-letter-2">
+                        <option value=""></option>
+                        <option>U</option>
+                        <option>V</option>
+                        <option>W</option>
+                        <option>X</option>
+                        <option>Y</option>
+                        <option>Z</option>
+                    </select>
+
+                    <select id="pyramids-letter-3">
+                        <option value=""></option>
+                        <option>O</option>
+                        <option>P</option>
+                        <option>Q</option>
+                        <option>R</option>
+                        <option>S</option>
+                        <option>T</option>
+                    </select>
+
+                    <select id="pyramids-letter-4">
+                        <option value=""></option>
+                        <option>A</option>
+                        <option>B</option>
+                        <option>C</option>
+                        <option>D</option>
+                        <option>E</option>
+                        <option>F</option>
+                    </select>
+
+                    <select id="pyramids-letter-5">
+                        <option value=""></option>
+                        <option>K</option>
+                        <option>L</option>
+                        <option>M</option>
+                        <option>N</option>
+                        <option>O</option>
+                        <option>P</option>
+                    </select>
+
+                    <select id="pyramids-letter-6">
+                        <option value=""></option>
+                        <option>F</option>
+                        <option>G</option>
+                        <option>H</option>
+                        <option>I</option>
+                        <option>J</option>
+                        <option>K</option>
+                    </select>
+
+                    <select id="pyramids-letter-7">
+                        <option value=""></option>
+                        <option>A</option>
+                        <option>B</option>
+                        <option>C</option>
+                        <option>D</option>
+                        <option>E</option>
+                        <option>F</option>
+                    </select>
+
+                </div>
+            </div>
+
+            <button id="pyramids-submit-button" class="btn">
+                Click Here to Solve the Puzzle
+            </button>
+
+        </div>
+
+        <div id="pyramids-result" class="township__quiz-result" hidden></div>
+
+        <button id="pyramids-try-again-button" class="btn" hidden>
+            Try Again
+        </button>
+
+        <button id="pyramids-back-button" class="btn">
             Back to Township
         </button>
     </section>

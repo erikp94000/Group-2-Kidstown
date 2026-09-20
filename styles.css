@@ -1097,7 +1097,7 @@ body.zone-cityhall .story__note {
    ZOO
    ========================================================= */
 
-.zoo [hidden] {
+[hidden] {
     display: none !important;
 }
 
