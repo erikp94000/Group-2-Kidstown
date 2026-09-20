@@ -1093,6 +1093,14 @@ body.zone-cityhall .story__note {
     margin-top: 1.5rem;
 }
 
+body.zone-toystore {
+    background: linear-gradient(
+        180deg,
+        #bfe3ff 0%,
+        #6fb6ee 100%
+    );
+}
+
 /* =========================================================
    ZOO
    ========================================================= */
@@ -1218,6 +1226,14 @@ body.zone-cityhall .story__note {
 
     border: 4px solid #d88420;
     border-radius: 12px;
+}
+
+body.zone-zoo {
+    background: linear-gradient(
+        180deg,
+        #ffd1d1 0%,
+        #f5aaaa 100%
+    );
 }
 
 /* Zeus page */
@@ -1418,5 +1434,138 @@ body.zone-cityhall .story__note {
 @media (max-width: 750px) {
     .township__country-game {
         grid-template-columns: 1fr;
+    }
+}
+
+body.zone-township {
+    background: linear-gradient(
+        180deg,
+        #fff6bf 0%,
+        #ffd978 100%
+    );
+}
+
+/* ============================================
+   TOWNSHIP CONTENT CARDS
+   ============================================ */
+
+.township__content-card {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+
+    background: #fff6dc;
+    border-radius: 24px;
+
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ============================================
+   TOWNSHIP QUIZ CARD
+   ============================================ */
+
+.township__quiz-card {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+
+    background: #fff6dc;
+    border-radius: 24px;
+
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.township__quiz-card h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+
+    text-align: center;
+}
+
+
+/* Two main quiz questions */
+
+.township__quiz-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.township__quiz-question {
+    padding: 1rem;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: 16px;
+}
+
+
+/* Construct-the-word question */
+
+.township__quiz-word {
+    margin: 1.5rem 0;
+    padding: 1rem;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: 16px;
+}
+
+.township__letter-selects {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 0.4rem;
+    margin-top: 1rem;
+}
+
+
+/* Submit button */
+
+.township__quiz-card > #zeus-game > .btn,
+.township__quiz-card .btn {
+    margin-top: 1rem;
+}
+
+
+/* Result */
+
+.township__quiz-result {
+    margin-top: 1rem;
+
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+
+/* Bottom quiz buttons */
+
+.township__quiz-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+
+/* Small screens */
+
+@media (max-width: 750px) {
+    .township__quiz-row {
+        grid-template-columns: 1fr;
+    }
+
+    .township__content-card,
+    .township__quiz-card {
+        padding: 1.25rem;
     }
 }

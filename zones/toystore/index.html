@@ -1,12 +1,10 @@
 <!--
     ZONE: Toystore
-    KEY <XXXX> - Landing page for the <ZoneName> zone.
+    KEY 7000 - Landing page for the toystore zone.
 
-    Original Perl scripts live in scripts/<zonename>/
-    Original graphics live in graphics/<zonename>/
+    Original Perl scripts live in scripts/toystore/
+    Original graphics live in graphics/toystore/
 
-    Look at zones/cityhall/index.html for a full example of a
-    completed zone landing page with card links to sub-pages.
 -->
 
 <section class="zone-content toystore">
@@ -35,15 +33,16 @@
     </div>
 
     <div class="toystore__activity">
+        
+        <div id="riddle-display"></div>
+
+        <div id="answer-display"></div>
+
         <img
             id="toystore-image"
             src=""
             alt=""
             hidden>
-
-        <div id="riddle-display"></div>
-
-        <div id="answer-display"></div>
 
         <div class="toystore__controls">
             <button id="answer-button" class="btn">

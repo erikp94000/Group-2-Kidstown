@@ -106,11 +106,12 @@ by the CI pipeline:
 | Library   | Stub   | Landing placeholder only                           |
 | Museum    | Stub   | Landing placeholder only                           |
 | School    | Stub   | Landing placeholder only                           |
-| ToyStore  | Stub   | Landing placeholder only                           |
-| TownShip  | Stub   | Landing placeholder only                           |
-| Zoo       | Stub   | Landing placeholder only                           |
+| ToyStore  | Done   | Riddles, Poems and bonus question are ready        |
+| TownShip  | Done   | The great wonders and country shape game are done  |
+| Zoo       | Done   | Regions and quizzes are complete                   |
 
 The CityHall help page (KEY 5900) is not yet built.
+Zoo help page (KEY 9600) is not yet built.
 
 ## How to Add or Complete a Zone
 

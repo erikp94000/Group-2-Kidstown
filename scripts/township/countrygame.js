@@ -250,7 +250,7 @@
                 {
                     name: "Turkey",
                     correct: false,
-                    image: "graphics/township/Turkey.gif",
+                    image: "graphics/township/turkey.gif",
                     info:
                         "Turkey is located in both Europe and Asia. Its capital is Ankara."
                 }

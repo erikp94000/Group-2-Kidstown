@@ -224,8 +224,6 @@ const regions = [
     }
 ];
 
-console.log(regions);
-
 let currentRegion = 0;
 
 const zooDisplay = document.getElementById("zoo-display");

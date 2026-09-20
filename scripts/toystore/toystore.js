@@ -338,6 +338,11 @@ Pooh on that four leaf clover.`
             </div>
         `;
 
+        const image = document.getElementById("toystore-image");
+        const answer = document.getElementById("answer-display");
+
+answer.after(image);
+
         answerButton.hidden = false;
     }
 
@@ -395,6 +400,10 @@ Pooh on that four leaf clover.`
         clearActivity();
 
         const shape = shapePoems[index];
+        const image = document.getElementById("toystore-image");
+        const answer = document.getElementById("answer-display");
+
+        answer.parentNode.insertBefore(image, answer);
 
         showImage(shape.image, shape.alt);
 
