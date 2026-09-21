@@ -103,9 +103,9 @@ by the CI pipeline:
 | Home      | Done   | Entry map with image map + zone navigation         |
 | CityHall  | Done   | Both interactive mysteries fully playable          |
 | CityPark  | Stub   | Landing placeholder only                           |
-| Library   | Stub   | Landing placeholder only                           |
-| Museum    | Stub   | Landing placeholder only                           |
-| School    | Stub   | Landing placeholder only                           |
+| Library   | Done   | Landing placeholder only                           |
+| Museum    | Done   | Landing placeholder only                           |
+| School    | Done   | Landing placeholder only                           |
 | ToyStore  | Done   | Riddles, Poems and bonus question are ready        |
 | TownShip  | Done   | The great wonders and country shape game are done  |
 | Zoo       | Done   | Regions and quizzes are complete                   |
